@@ -1,0 +1,421 @@
+<?xml version='1.0' encoding='utf-8'?>
+<litp:root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:litp="http://www.ericsson.com/litp" xsi:schemaLocation="http://www.ericsson.com/litp litp-xml-schema/litp.xsd" id="root">
+  <deployments>
+    <litp:deployment id="d1">
+      <clusters>
+        <litp:vcs-cluster id="c1">
+          <configs/>
+          <nodes>
+            <litp:node id="n1">
+              <hostname>node1dot90</hostname>
+              <configs/>
+              <file_systems/>
+              <ipaddresses>
+                <litp:ip-range-link id="ip1">
+                  <address>10.44.86.88</address>
+                  <network_name>mgmt</network_name>
+                </litp:ip-range-link>
+              </ipaddresses>
+              <items>
+                <litp:ntp-service-link id="ntp1">
+                  <name>ntp1</name>
+                </litp:ntp-service-link>
+              </items>
+              <litp:network-profile-link id="network_profile">
+                <name>net-profile2</name>
+              </litp:network-profile-link>
+              <litp:os-profile-link id="os">
+                <name>os-profile1</name>
+              </litp:os-profile-link>
+              <routes>
+                <litp:route-link id="route1">
+                  <name>default</name>
+                </litp:route-link>
+              </routes>
+              <litp:storage-profile-link id="storage_profile">
+                <storage_profile_name>sp1</storage_profile_name>
+              </litp:storage-profile-link>
+              <litp:blade-link id="system">
+                <system_name>CZJ33308J9</system_name>
+              </litp:blade-link>
+            </litp:node>
+            <litp:node id="n2">
+              <hostname>node2dot90</hostname>
+              <configs/>
+              <file_systems/>
+              <ipaddresses>
+                <litp:ip-range-link id="ip1">
+                  <address>10.44.86.89</address>
+                  <network_name>mgmt</network_name>
+                </litp:ip-range-link>
+              </ipaddresses>
+              <items>
+                <litp:ntp-service-link id="ntp1">
+                  <name>ntp1</name>
+                </litp:ntp-service-link>
+              </items>
+              <litp:network-profile-link id="network_profile">
+                <name>net-profile2</name>
+              </litp:network-profile-link>
+              <litp:os-profile-link id="os">
+                <name>os-profile1</name>
+              </litp:os-profile-link>
+              <routes>
+                <litp:route-link id="route1">
+                  <name>default</name>
+                </litp:route-link>
+              </routes>
+              <litp:storage-profile-link id="storage_profile">
+                <storage_profile_name>sp1</storage_profile_name>
+              </litp:storage-profile-link>
+              <litp:blade-link id="system">
+                <system_name>CZJ33308HJ</system_name>
+              </litp:blade-link>
+            </litp:node>
+          </nodes>
+          <services/>
+          <software/>
+          <id>auto</id>
+          <type>vcs</type>
+          <fencing_disks/>
+          <heartbeat_networks>
+            <litp:network-link id="hb1">
+              <network_name>heartbeat1</network_name>
+            </litp:network-link>
+            <litp:network-link id="hb2">
+              <network_name>heartbeat2</network_name>
+            </litp:network-link>
+          </heartbeat_networks>
+          <litp:network-link id="mgmt_network">
+            <network_name>mgmt</network_name>
+            <vcs_llt>true</vcs_llt>
+          </litp:network-link>
+        </litp:vcs-cluster>
+      </clusters>
+    </litp:deployment>
+  </deployments>
+  <litp:infrastructure id="infrastructure">
+    <items/>
+    <litp:networking id="networking">
+      <ip_ranges>
+        <litp:ip-range id="r1">
+          <end>10.44.86.90</end>
+          <network_name>mgmt</network_name>
+          <start>10.44.86.88</start>
+          <subnet>10.44.86.64/26</subnet>
+        </litp:ip-range>
+      </ip_ranges>
+      <network_profiles>
+        <litp:network-profile id="np1">
+          <name>net-profile1</name>
+          <management_network>mgmt</management_network>
+          <bridges/>
+          <interfaces>
+            <litp:interface id="nic0">
+              <interface_basename>eth0</interface_basename>
+            </litp:interface>
+            <litp:interface id="nic1">
+              <interface_basename>eth1</interface_basename>
+            </litp:interface>
+          </interfaces>
+          <networks>
+            <litp:network id="data">
+              <interface>nic1</interface>
+              <network_name>data</network_name>
+            </litp:network>
+            <litp:network id="mgmt">
+              <interface>nic0</interface>
+              <network_name>mgmt</network_name>
+            </litp:network>
+          </networks>
+        </litp:network-profile>
+        <litp:network-profile id="np2">
+          <name>net-profile2</name>
+          <management_network>mgmt</management_network>
+          <bridges/>
+          <interfaces>
+            <litp:interface id="nic2">
+              <interface_basename>eth2</interface_basename>
+            </litp:interface>
+            <litp:interface id="nic3">
+              <interface_basename>eth3</interface_basename>
+            </litp:interface>
+            <litp:interface id="nic0">
+              <interface_basename>eth0</interface_basename>
+            </litp:interface>
+            <litp:interface id="nic1">
+              <interface_basename>eth1</interface_basename>
+            </litp:interface>
+          </interfaces>
+          <networks>
+            <litp:network id="heartbeat2">
+              <interface>nic2</interface>
+              <network_name>heartbeat2</network_name>
+            </litp:network>
+            <litp:network id="heartbeat1">
+              <interface>nic3</interface>
+              <network_name>heartbeat1</network_name>
+            </litp:network>
+            <litp:network id="data">
+              <interface>nic1</interface>
+              <network_name>data</network_name>
+            </litp:network>
+            <litp:network id="mgmt">
+              <interface>nic0</interface>
+              <network_name>mgmt</network_name>
+              <vcs_llt>true</vcs_llt>
+            </litp:network>
+          </networks>
+        </litp:network-profile>
+      </network_profiles>
+      <routes>
+        <litp:route id="route1">
+          <name>default</name>
+          <gateway>10.44.86.65</gateway>
+          <subnet>0.0.0.0/0</subnet>
+        </litp:route>
+      </routes>
+    </litp:networking>
+    <service_providers/>
+    <litp:storage id="storage">
+      <file_systems/>
+      <storage_profiles>
+        <litp:storage-profile id="profile_1">
+          <storage_profile_name>sp1</storage_profile_name>
+          <volume_driver>lvm</volume_driver>
+          <volume_groups>
+            <litp:volume-group id="vg1">
+              <volume_group_name>vg_root</volume_group_name>
+              <file_systems>
+                <litp:file-system id="root">
+                  <mount_point>/</mount_point>
+                  <size>8G</size>
+                  <snap_size>100</snap_size>
+                  <type>ext4</type>
+                </litp:file-system>
+                <litp:file-system id="swap">
+                  <mount_point>swap</mount_point>
+                  <size>2G</size>
+                  <snap_size>100</snap_size>
+                  <type>swap</type>
+                </litp:file-system>
+              </file_systems>
+              <physical_devices>
+                <litp:physical-device id="internal">
+                  <device_name>hd0</device_name>
+                </litp:physical-device>
+              </physical_devices>
+            </litp:volume-group>
+            <litp:volume-group id="vg2">
+              <volume_group_name>vg_secondDisk</volume_group_name>
+              <file_systems>
+                <litp:file-system id="disk2FS4">
+                  <mount_point>/mp_disk2fs4</mount_point>
+                  <size>1G</size>
+                  <snap_size>100</snap_size>
+                  <type>ext4</type>
+                </litp:file-system>
+                <litp:file-system id="disk2FS5">
+                  <mount_point>/mp_disk2fs5</mount_point>
+                  <size>1G</size>
+                  <snap_size>100</snap_size>
+                  <type>ext4</type>
+                </litp:file-system>
+                <litp:file-system id="disk2FS2">
+                  <mount_point>/mp_disk2fs2</mount_point>
+                  <size>1G</size>
+                  <snap_size>100</snap_size>
+                  <type>ext4</type>
+                </litp:file-system>
+                <litp:file-system id="disk2FS3">
+                  <mount_point>/mp_disk2fs3</mount_point>
+                  <size>1G</size>
+                  <snap_size>100</snap_size>
+                  <type>ext4</type>
+                </litp:file-system>
+                <litp:file-system id="disk2FS1">
+                  <mount_point>/mp_disk2fs1</mount_point>
+                  <size>8G</size>
+                  <snap_size>100</snap_size>
+                  <type>ext4</type>
+                </litp:file-system>
+              </file_systems>
+              <physical_devices>
+                <litp:physical-device id="internal">
+                  <device_name>hd1</device_name>
+                </litp:physical-device>
+              </physical_devices>
+            </litp:volume-group>
+          </volume_groups>
+        </litp:storage-profile>
+      </storage_profiles>
+      <storage_providers/>
+    </litp:storage>
+    <system_providers/>
+    <systems>
+      <litp:blade id="sys1">
+        <system_name>CZJ33308JF</system_name>
+        <disks/>
+        <network_interfaces>
+          <litp:nic id="nic_2">
+            <interface_name>eth1</interface_name>
+            <macaddress>2c:59:E5:3D:E3:DC</macaddress>
+          </litp:nic>
+          <litp:nic id="nic_1">
+            <interface_name>eth0</interface_name>
+            <macaddress>2C:59:E5:3D:E3:D8</macaddress>
+          </litp:nic>
+        </network_interfaces>
+      </litp:blade>
+      <litp:blade id="sys3">
+        <system_name>CZJ33308HJ</system_name>
+        <disks>
+          <litp:disk id="disk0">
+            <bootable>true</bootable>
+            <name>hd0</name>
+            <size>28G</size>
+            <uuid>6006016011602d009243a59c6769e311</uuid>
+          </litp:disk>
+          <litp:disk id="disk1">
+            <bootable>false</bootable>
+            <name>hd1</name>
+            <size>28G</size>
+            <uuid>6006016011602d000af0b95eb1c4e311</uuid>
+          </litp:disk>
+        </disks>
+        <network_interfaces>
+          <litp:nic id="nic_2">
+            <interface_name>eth2</interface_name>
+            <macaddress>2C:59:E5:3D:A3:91</macaddress>
+          </litp:nic>
+          <litp:nic id="nic_3">
+            <interface_name>eth3</interface_name>
+            <macaddress>2C:59:E5:3D:A3:95</macaddress>
+          </litp:nic>
+          <litp:nic id="nic_0">
+            <interface_name>eth0</interface_name>
+            <macaddress>2C:59:E5:3D:A3:90</macaddress>
+          </litp:nic>
+          <litp:nic id="nic_1">
+            <interface_name>eth1</interface_name>
+            <macaddress>2C:59:E5:3D:A3:94</macaddress>
+          </litp:nic>
+        </network_interfaces>
+        <litp:bmc id="bmc">
+          <ipaddress>10.44.84.45</ipaddress>
+          <password_key>key-for-root</password_key>
+          <username>root</username>
+        </litp:bmc>
+      </litp:blade>
+      <litp:blade id="sys2">
+        <system_name>CZJ33308J9</system_name>
+        <disks>
+          <litp:disk id="disk0">
+            <bootable>true</bootable>
+            <name>hd0</name>
+            <size>28G</size>
+            <uuid>6006016011602d00ac03b5856769e311</uuid>
+          </litp:disk>
+          <litp:disk id="disk1">
+            <bootable>false</bootable>
+            <name>hd1</name>
+            <size>28G</size>
+            <uuid>6006016011602d00c4a8be46b1c4e311</uuid>
+          </litp:disk>
+        </disks>
+        <network_interfaces>
+          <litp:nic id="nic_2">
+            <interface_name>eth2</interface_name>
+            <macaddress>2C:59:E5:3D:B3:49</macaddress>
+          </litp:nic>
+          <litp:nic id="nic_3">
+            <interface_name>eth3</interface_name>
+            <macaddress>2C:59:E5:3D:B3:4D</macaddress>
+          </litp:nic>
+          <litp:nic id="nic_0">
+            <interface_name>eth0</interface_name>
+            <macaddress>2C:59:E5:3D:B3:48</macaddress>
+          </litp:nic>
+          <litp:nic id="nic_1">
+            <interface_name>eth1</interface_name>
+            <macaddress>2C:59:E5:3D:B3:4C</macaddress>
+          </litp:nic>
+        </network_interfaces>
+        <litp:bmc id="bmc">
+          <ipaddress>10.44.84.44</ipaddress>
+          <password_key>key-for-root</password_key>
+          <username>root</username>
+        </litp:bmc>
+      </litp:blade>
+    </systems>
+  </litp:infrastructure>
+  <litp:ms id="ms">
+    <hostname>ms1dot90</hostname>
+    <configs/>
+    <ipaddresses>
+      <litp:ip-range-link id="ip1">
+        <address>10.44.86.90</address>
+        <network_name>mgmt</network_name>
+      </litp:ip-range-link>
+    </ipaddresses>
+    <items>
+      <litp:ntp-service-link id="ntp">
+        <name>ntp1</name>
+      </litp:ntp-service-link>
+    </items>
+    <litp:network-profile-link id="network_profile">
+      <name>net-profile1</name>
+    </litp:network-profile-link>
+    <routes>
+      <litp:route-link id="route1">
+        <name>default</name>
+      </litp:route-link>
+    </routes>
+    <services>
+      <litp:cobbler-service id="cobbler">
+        <authentication>authn_configfile</authentication>
+        <boot_network>mgmt</boot_network>
+        <ksm_ksname>litp.ks</ksm_ksname>
+        <ksm_path>/var/lib/cobbler/kickstarts</ksm_path>
+        <ksm_selinux_mode>enforcing</ksm_selinux_mode>
+        <manage_dhcp>true</manage_dhcp>
+        <manage_dns>false</manage_dns>
+        <puppet_auto_setup>true</puppet_auto_setup>
+        <remove_old_puppet_certs_automatically>true</remove_old_puppet_certs_automatically>
+        <rsync_disabled>false</rsync_disabled>
+        <sign_puppet_certs_automatically>true</sign_puppet_certs_automatically>
+      </litp:cobbler-service>
+    </services>
+    <litp:blade-link id="system">
+      <system_name>CZJ33308JF</system_name>
+    </litp:blade-link>
+  </litp:ms>
+  <plans/>
+  <litp:software id="software">
+    <deployables/>
+    <items>
+      <litp:ntp-service id="ntp1">
+        <name>ntp1</name>
+        <servers>
+          <litp:ntp-server id="server0">
+            <server>10.44.86.30</server>
+          </litp:ntp-server>
+          <litp:ntp-server id="server1">
+            <server>127.127.1.0</server>
+          </litp:ntp-server>
+        </servers>
+      </litp:ntp-service>
+    </items>
+    <profiles>
+      <litp:os-profile id="os_prof1">
+        <arch>x86_64</arch>
+        <breed>redhat</breed>
+        <kopts_post>console=ttyS0,115200</kopts_post>
+        <name>os-profile1</name>
+        <path>/var/www/html/6/os/x86_64/</path>
+        <version>rhel6</version>
+      </litp:os-profile>
+    </profiles>
+    <runtimes/>
+  </litp:software>
+</litp:root>

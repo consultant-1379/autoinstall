@@ -1,0 +1,100 @@
+
+PERFORMANCE KPIs
+================
+
+STEPS
+-----
+- Install the ST-CDB System through FEM Jenkins 
+
+- Specify the deployment file and cluster file in this directory.
+
+- Set "Deployment Script Type" to be XML Merge
+
+- Specify "pm_kpi" in the testTags section.
+
+- Ensure OS Patches are not selected
+
+
+FILES USED IN THE CLUSTER FILE
+------------------------------
+
+OS Patches Rev D
+- scp /ISO/RHEL/RHEL_Patches/6.6_RevD/ERICrhel_CXP9026826-3.0.5.tar.gz root@10.44.86.72:/tmp
+
+ENM ISO
+- scp /ISO/ST_kpi_iso_pkg/ERICenm_CXP9027091-1.10.57.iso root@10.44.86.72:/tmp
+
+JDK RPM
+- scp /ISO/ST_kpi_iso_pkg/java-1.6.0-openjdk-1.6.0.0-1.41.1.10.4.el6.x86_64.rpm root@10.44.86.72:/tmp
+
+
+KPI Measurements
+----------------
+(If there is a large difference from the previous sprints values - then it may be necessary to run the commands multiple times to confirm.)
+
+The required metrics to be detailed in Confluence page : 
+
+ https://confluence-nam.lmera.ericsson.se/display/ELITP/Performance+KPIs
+
+
+The majority of metrics are taken from the KPI Tests run - TC01 and TC02.
+
+The metrics for create_plan, show_plan and run_plan are taken from the console log of the ST-CDB job : 
+
+
+NOTE: Some of the operations are executed a number of times in sequence, the times should always be gathered from the very last execution for consistency.
+
+
+XML Load merge & replace
+
+ - Taken from test_02_measure_key_litp_operations
+
+create_plan
+
+ - Take from Jenkins console log when the command is run in after the XML merge.
+
+show_plan
+
+ - Take from Jenkins console log after the above litp create_plan
+
+run_plan
+
+ - Take from Jenkins console log
+
+create_snapshot
+
+ - Taken from test_02_measure_key_litp_operations
+
+remove_snapshot
+
+ - Taken from test_02_measure_key_litp_operations
+
+restore_snapshot
+
+ - Taken from test_01_measure_restore_snapshot_operation
+
+Import RPM
+
+ - Taken from test_02_measure_key_litp_operations
+
+Import OS
+
+ - Taken from test_02_measure_key_litp_operations
+
+Import ISO
+
+ - Taken from test_02_measure_key_litp_operations
+
+prepare_restore
+
+ - Take from test_02_measure_key_litp_operations
+
+service litpd restart
+
+ - Taken from test_02_measure_key_litp_operations
+
+
+
+Backup Logs
+-----------
+Archive a copy of the console and test logs at ftp://l1.ammeon.com/SYS_TEST_LOGS/KPI/ in case they ever need to be rechecked

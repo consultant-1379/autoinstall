@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='utf-8'?>
+<litp:node xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:litp="http://www.ericsson.com/litp" xsi:schemaLocation="http://www.ericsson.com/litp litp-xml-schema/litp.xsd" id="n4">
+  <hostname>node4dot51<!--note: this property is not updatable--></hostname>
+  <is_locked>false<!--note: this property is not updatable--></is_locked>
+  <node_id>4</node_id>
+  <litp:node-configs-collection id="configs">
+    <litp:firewall-node-config id="fw_config">
+      <drop_all>true</drop_all>
+      <litp:firewall-node-config-rules-collection id="rules">
+        <litp:firewall-rule id="fw_dhcptcp">
+          <action>accept</action>
+          <dport>647</dport>
+          <name>020 dhcp</name>
+          <proto>tcp</proto>
+          <state>NEW</state>
+        </litp:firewall-rule>
+        <litp:firewall-rule id="fw_dhcpudp">
+          <action>accept</action>
+          <dport>67,68</dport>
+          <name>021 dhcpudp</name>
+          <proto>udp</proto>
+          <state>NEW</state>
+        </litp:firewall-rule>
+        <litp:firewall-rule id="fw_icmp">
+          <action>accept</action>
+          <name>100 icmp</name>
+          <proto>icmp</proto>
+        </litp:firewall-rule>
+        <litp:firewall-rule id="fw_icmpv6">
+          <action>accept</action>
+          <name>101 icmpv6</name>
+          <proto>ipv6-icmp</proto>
+          <provider>ip6tables</provider>
+        </litp:firewall-rule>
+        <litp:firewall-rule id="fw_nfstcp">
+          <action>accept</action>
+          <dport>53,111,2049,4001</dport>
+          <name>001 nfstcp</name>
+          <proto>tcp</proto>
+          <state>NEW</state>
+        </litp:firewall-rule>
+        <litp:firewall-rule id="fw_nfsudp">
+          <action>accept</action>
+          <dport>53,111,2049,4001</dport>
+          <name>011 nfsudp</name>
+          <proto>udp</proto>
+          <state>NEW</state>
+        </litp:firewall-rule>
+      </litp:firewall-node-config-rules-collection>
+    </litp:firewall-node-config>
+  </litp:node-configs-collection>
+  <litp:node-file_systems-collection id="file_systems"/>
+  <litp:node-items-collection id="items">
+    <litp:yum-repository-inherit source_path="/software/items/new_repo_id" id="new_repo_id">
+      <checksum>fc2b2d6570e4559b3c36ea274f8d9279<!--note: this property is not updatable--></checksum>
+    </litp:yum-repository-inherit>
+    <litp:package-inherit source_path="/software/items/test_service" id="test_service"/>
+    <litp:yum-repository-inherit source_path="/software/items/yum_osHA_repo" id="yum_osHA_repo"/>
+  </litp:node-items-collection>
+  <litp:node-network_interfaces-collection id="network_interfaces">
+    <litp:bridge id="br333">
+      <ipaddress>10.46.81.47</ipaddress>
+      <network_name>net1vm</network_name>
+      <device_name>br333<!--note: this property is not updatable--></device_name>
+      <forwarding_delay>0</forwarding_delay>
+      <hash_elasticity>4</hash_elasticity>
+      <hash_max>512</hash_max>
+      <multicast_querier>0</multicast_querier>
+      <multicast_router>1</multicast_router>
+      <multicast_snooping>1</multicast_snooping>
+      <stp>false</stp>
+    </litp:bridge>
+    <litp:bridge id="br444">
+      <ipaddress>10.46.81.71</ipaddress>
+      <network_name>net2vm</network_name>
+      <device_name>br444<!--note: this property is not updatable--></device_name>
+      <forwarding_delay>0</forwarding_delay>
+      <hash_elasticity>4</hash_elasticity>
+      <hash_max>512</hash_max>
+      <multicast_querier>0</multicast_querier>
+      <multicast_router>1</multicast_router>
+      <multicast_snooping>1</multicast_snooping>
+      <stp>false</stp>
+    </litp:bridge>
+    <litp:bridge id="br555">
+      <ipaddress>10.46.81.135</ipaddress>
+      <network_name>net3vm</network_name>
+      <device_name>br555<!--note: this property is not updatable--></device_name>
+      <forwarding_delay>0</forwarding_delay>
+      <hash_elasticity>4</hash_elasticity>
+      <hash_max>512</hash_max>
+      <multicast_querier>0</multicast_querier>
+      <multicast_router>1</multicast_router>
+      <multicast_snooping>1</multicast_snooping>
+      <stp>false</stp>
+    </litp:bridge>
+    <litp:eth id="if5">
+      <device_name>eth7<!--note: this property is not updatable--></device_name>
+      <macaddress>2C:59:E5:3D:32:5F</macaddress>
+    </litp:eth>
+    <litp:eth id="nic_0">
+      <ipaddress>10.44.235.48</ipaddress>
+      <network_name>mgmt</network_name>
+      <device_name>eth0<!--note: this property is not updatable--></device_name>
+      <macaddress>2C:59:E5:3D:32:58</macaddress>
+    </litp:eth>
+    <litp:eth id="nic_2">
+      <network_name>heartbeat1</network_name>
+      <device_name>eth2<!--note: this property is not updatable--></device_name>
+      <macaddress>2C:59:E5:3D:32:59</macaddress>
+    </litp:eth>
+    <litp:eth id="nic_3">
+      <network_name>heartbeat2</network_name>
+      <device_name>eth3<!--note: this property is not updatable--></device_name>
+      <macaddress>2C:59:E5:3D:32:5D</macaddress>
+    </litp:eth>
+    <litp:eth id="nic_5">
+      <ipaddress>10.19.51.40</ipaddress>
+      <network_name>traffic1</network_name>
+      <device_name>eth5<!--note: this property is not updatable--></device_name>
+      <macaddress>2C:59:E5:3D:32:5E</macaddress>
+    </litp:eth>
+    <litp:eth id="nic_6">
+      <ipaddress>10.20.51.40</ipaddress>
+      <network_name>traffic2</network_name>
+      <device_name>eth6<!--note: this property is not updatable--></device_name>
+      <macaddress>2C:59:E5:3D:32:5B</macaddress>
+    </litp:eth>
+    <litp:vlan id="vlan_333">
+      <bridge>br333</bridge>
+      <device_name>eth7.333<!--note: this property is not updatable--></device_name>
+    </litp:vlan>
+    <litp:vlan id="vlan_444">
+      <bridge>br444</bridge>
+      <device_name>eth7.444<!--note: this property is not updatable--></device_name>
+    </litp:vlan>
+    <litp:vlan id="vlan_555">
+      <bridge>br555</bridge>
+      <device_name>eth7.555<!--note: this property is not updatable--></device_name>
+    </litp:vlan>
+    <litp:vlan id="vlan_834">
+      <ipaddress>10.44.86.21</ipaddress>
+      <network_name>netwrk834</network_name>
+      <device_name>eth7.834<!--note: this property is not updatable--></device_name>
+    </litp:vlan>
+  </litp:node-network_interfaces-collection>
+  <litp:os-profile-inherit source_path="/software/profiles/os_prof1" id="os"/>
+  <litp:node-routes-collection id="routes">
+    <litp:route-inherit source_path="/infrastructure/networking/routes/route1" id="r1"/>
+    <litp:route-inherit source_path="/infrastructure/networking/routes/route1" id="r5">
+      <gateway>10.44.235.1</gateway>
+      <subnet>10.44.84.0/24</subnet>
+    </litp:route-inherit>
+    <litp:route-inherit source_path="/infrastructure/networking/routes/traffic1_gw" id="traffic1_gw"/>
+    <litp:route-inherit source_path="/infrastructure/networking/routes/traffic2_gw" id="traffic2_gw"/>
+  </litp:node-routes-collection>
+  <litp:node-services-collection id="services"/>
+  <litp:storage-profile-inherit source_path="/infrastructure/storage/storage_profiles/profile_1" id="storage_profile">
+    <litp:storage-profile-volume_groups-collection-inherit source_path="/infrastructure/storage/storage_profiles/profile_1/volume_groups" id="volume_groups">
+      <litp:volume-group-inherit source_path="/infrastructure/storage/storage_profiles/profile_1/volume_groups/vg1" id="vg1">
+        <litp:volume-group-file_systems-collection-inherit source_path="/infrastructure/storage/storage_profiles/profile_1/volume_groups/vg1/file_systems" id="file_systems">
+          <litp:file-system-inherit source_path="/infrastructure/storage/storage_profiles/profile_1/volume_groups/vg1/file_systems/VG1_FS0" id="VG1_FS0"/>
+          <litp:file-system-inherit source_path="/infrastructure/storage/storage_profiles/profile_1/volume_groups/vg1/file_systems/VG1_FS1" id="VG1_FS1"/>
+          <litp:file-system-inherit source_path="/infrastructure/storage/storage_profiles/profile_1/volume_groups/vg1/file_systems/file1" id="file1"/>
+          <litp:file-system-inherit source_path="/infrastructure/storage/storage_profiles/profile_1/volume_groups/vg1/file_systems/file2" id="file2"/>
+          <litp:file-system-inherit source_path="/infrastructure/storage/storage_profiles/profile_1/volume_groups/vg1/file_systems/root" id="root"/>
+          <litp:file-system-inherit source_path="/infrastructure/storage/storage_profiles/profile_1/volume_groups/vg1/file_systems/swap" id="swap"/>
+        </litp:volume-group-file_systems-collection-inherit>
+        <litp:volume-group-physical_devices-collection-inherit source_path="/infrastructure/storage/storage_profiles/profile_1/volume_groups/vg1/physical_devices" id="physical_devices">
+          <litp:physical-device-inherit source_path="/infrastructure/storage/storage_profiles/profile_1/volume_groups/vg1/physical_devices/internal" id="internal"/>
+          <litp:physical-device-inherit source_path="/infrastructure/storage/storage_profiles/profile_1/volume_groups/vg1/physical_devices/pd0" id="pd0"/>
+          <litp:physical-device-inherit source_path="/infrastructure/storage/storage_profiles/profile_1/volume_groups/vg1/physical_devices/pd1" id="pd1"/>
+        </litp:volume-group-physical_devices-collection-inherit>
+      </litp:volume-group-inherit>
+    </litp:storage-profile-volume_groups-collection-inherit>
+  </litp:storage-profile-inherit>
+  <litp:blade-inherit source_path="/infrastructure/systems/sys5" id="system">
+    <litp:system-controllers-collection-inherit source_path="/infrastructure/systems/sys5/controllers" id="controllers"/>
+    <litp:system-disks-collection-inherit source_path="/infrastructure/systems/sys5/disks" id="disks">
+      <litp:disk-inherit source_path="/infrastructure/systems/sys5/disks/disk0" id="disk0">
+        <disk_part>true<!--note: this property is not updatable--></disk_part>
+      </litp:disk-inherit>
+      <litp:disk-inherit source_path="/infrastructure/systems/sys5/disks/disk4" id="disk4"/>
+      <litp:disk-inherit source_path="/infrastructure/systems/sys5/disks/disk4vx" id="disk4vx"/>
+      <litp:disk-inherit source_path="/infrastructure/systems/sys5/disks/disk7" id="disk7">
+        <disk_part>true<!--note: this property is not updatable--></disk_part>
+      </litp:disk-inherit>
+      <litp:disk-inherit source_path="/infrastructure/systems/sys5/disks/disk9" id="disk9">
+        <disk_part>true<!--note: this property is not updatable--></disk_part>
+      </litp:disk-inherit>
+    </litp:system-disks-collection-inherit>
+    <litp:bmc-inherit source_path="/infrastructure/systems/sys5/bmc" id="bmc"/>
+  </litp:blade-inherit>
+</litp:node>

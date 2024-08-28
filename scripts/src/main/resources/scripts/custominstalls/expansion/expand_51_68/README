@@ -1,0 +1,184 @@
+###
+# There are 3 scenarios covered in this README
+#
+##
+
+Scenario 1
+----------
+- 2 Clusters each of 1 Node 
+- Expand both Clusters to 2 Nodes
+
+
+Scenario 2
+----------
+- 1 Cluster of 2 Nodes with VxVM
+- Expand Cluster to 4 Nodes with VxVM
+
+
+Scenario 3
+----------
+- 1 Cluster of 2 Nodes without VxVM
+- Expand Cluster to 4 Nodes with VxVM
+
+
+The steps for each scenario are described below:
+
+
+Scenario 1
+----------
+- 2 Clusters each of 1 Node 
+- Expand both Clusters to 2 Nodes
+
+Last successful execution: unknown
+
+
+## Initial Deployment ## 
+
+*) Pre-deployment Actions
+- Ensure 68's job has been disabled and wont run while this system is set up as the peer nodes are in use.
+- Ensure that MS is cleaned of any previous deployment before loading the new xml
+
+- mkdir /var/www/html/newRepo_dir
+- scp -oStrictHostKeyChecking=no root@10.44.86.30:/ISO/package-test/test_service-1.0-1.noarch.rpm /tmp
+- litp import /tmp/test_service-1.0-1.noarch.rpm /var/www/html/newRepo_dir
+
+*) Load Deployment XML file to setup 2 clusters with one node each. 
+- litp load -p / -f root_2c_1node_each.xml --merge
+
+*) Post-deployment Actions 
+   (to update the model with all necessary updates to match other deployment scripts)
+- sh ./ST_Deployment_8_deployment_updates.sh
+
+## Perform Expansion ##
+
+*) Pre-expansion Actions
+
+- scp -oStrictHostKeyChecking=no root@10.44.86.30:/ISO/package-test/test_service-2.0-1.noarch.rpm /tmp
+- litp import /tmp/test_service-2.0-1.noarch.rpm /var/www/html/newRepo_dir
+- Remove SG_apache & a new VM .......[Stephen : Not too sure about this step....it may have just been required for a specific test]
+
+*) Load XML file to expand each cluster to 2 nodes. 
+- litp load -p / -f root_2c_2node_each.xml --merge
+
+
+
+Scenario 2
+----------
+- 1 Cluster of 2 Nodes with VxVM
+- Expand Cluster to 4 Nodes with VxVM
+
+Other changes on this expansion include:
+
+SGs expanded on node expansion:
+SG_STvm2 active 2, standby 0 (n1,n2) -> active 4, standby 0  (n2,n1,n3,n4) PL->PL
+SG_STvm4 active 1, standby 1 (n1,n2) -> active 2, standby 0  (n1,n2) FO->PL
+luci active 2, standby 0 (n1,n2) -> active 4, standby 0 (n1,n2,n3,n4) PL->PL
+
+SG contracted on node expansion:
+SG_STvm1 active 2, standby 0 (n1,n2) -> active 1, standby 0 (n1)
+
+Added new SG on expansion:
+ST_STvm3 active 4, standby 0 (n1,n2,n3,n4)
+SG_dovecot active 1, standby 1 (n3, n4)
+cups, active 4, standby 0 (n1,n2,n3,n4)
+
+SG removed on expansion:
+apachecs active 1, standby 1
+
+
+
+## Initial Deployment ## 
+
+Run the job "Project AutoInstall_2.1_Nightly_ST_Deployment_8_51_Setup_Expansion_P1" located at : http://10.44.86.30/jenkins/view/2_1_ST/job/AutoInstall_2.1_Nightly_ST_Deployment_8_51_Setup_Expansion_P1
+
+This will give you the 2 node deployment and perform any prerequisite actions needed.
+
+- If you want to install a 2 node system with fencing disks use : "root_c1_2n_with_VxVM_and_fencing.xml"
+- If you want to install a 2 node system without fencing disks use : "root_c1_2n_with_VxVM.xml"
+
+Once this job is successful it will kick off "AutoInstall_2.1_Nightly_ST_Deployment_8_51_Setup_Expansion_P2" as its downstream job.
+
+This job will perform post deployment updates to the model to match other deployments. Once this job is successful the system will be ready for expansion
+
+## Perform Expansion ##
+
+- Nodes have VxVM - so the VxVM LUNs must be in the storage group of all 4 nodes
+
+*) Remove items that are not updateable
+- cat root_c1_4n_with_VxVM.xml | grep -v adaptor_version | grep -v _map | grep -v checksum > root.xml
+
+*)  XML file to expand the cluster to 4 nodes with VxVM.  
+- litp load -p / -f root.xml  --merge
+
+- litp remove -p /deployments/d1/clusters/c1/services/SG_STvm4/triggers/trig1 (required as SG_STvm is changed from Active Standby to Active Active)
+- litp create_plan
+- litp run_plan
+
+
+Scenario 3
+----------
+- 1 Cluster of 4 Nodes
+- Nodes do not have VxVM
+
+Last successful execution: unknown
+
+# Deployment XML file to create 1 cluster of 4 nodes without VxVM.
+litp load -p / -f root_c1_4n_v2.xml --merge
+
+To use this file to test expansion you need to 
+- load the Deployment XML File
+- Remove n3 and n4 (which will be in Initial)
+- create/ run plan to deploy the remaining 2 nodes
+- Load the 4 node xml agin to expand to 4 nodes. 
+
+
+
+
+
+Trouble-shooting
+================
+
+When loading the expanded XML if you see error due to "Unable to modify readonly property" you can remove the readonly properties from the XML 
+
+Example errors:
+
+#/deployments/d1/clusters/c1/services/SG_STvm2/applications/vmservice2
+#    InvalidRequestError in property: "adaptor_version"    Unable to modify readonly property: adaptor_version
+
+#/deployments/d1/clusters/c1/services/SG_STvm2/applications/vmservice2
+#    InvalidRequestError in property: "image_checksum"    Unable to modify readonly property: image_checksum
+
+#/deployments/d1/clusters/c1/services/SG_STvm2/applications/vmservice2/vm_network_interfaces/vm_nic1
+#    InvalidRequestError in property: "node_ip_map"    Unable to modify readonly property: node_ip_map
+
+# It may be necessary to generate an MD5 checksum for image.qcow2
+/usr/bin/md5sum /var/www/html/images/image.qcow2 | cut -d ' ' -f 1 > /var/www/html/images/image.qcow2.md5
+
+
+ 
+To remove these perform the below steps :
+
+- cat root_c1_4n_with_VxVM.xml | grep -v map | grep -v image_checksum | grep -v checksum | grep -v adaptor_version > /tmp/root_c1_4n_with_VxVM.xml
+- cp /tmp/root_c1_4n_with_VxVM.xml root_c1_4n_with_VxVM.xml
+
+
+
+
+Other Deployments
+====================================
+root_1c_vcs_1c_no_vcs_2n.xml
+------------------------------------
+This XM contains 
+1 VCS cluster with 2 nodes
+1 non vcs cluster with 2 nodes
+
+
+root_1c_vcs_2n_2c_no_vcs_1n.xml
+-----------------------------------
+This XML deployment contains 
+1 VCS cluster with 2 nodes
+2 non vcs cluster with 1 node each
+
+
+
+

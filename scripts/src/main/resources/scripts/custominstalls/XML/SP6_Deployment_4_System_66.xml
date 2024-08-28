@@ -1,0 +1,681 @@
+<?xml version='1.0' encoding='utf-8'?>
+<litp:root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:litp="http://www.ericsson.com/litp" xsi:schemaLocation="http://www.ericsson.com/litp litp-xml-schema/litp.xsd" id="root">
+  <litp:root-deployments-collection id="deployments">
+    <litp:deployment id="d1">
+      <litp:deployment-clusters-collection id="clusters">
+        <litp:vcs-cluster id="c1">
+          <litp:cluster-configs-collection id="configs">
+            <litp:alias-cluster-config id="alias_config">
+              <litp:alias-cluster-config-aliases-collection id="aliases">
+                <litp:alias id="sfs_alias">
+                  <address>10.44.86.231</address>
+                  <alias_names>sfsAlias,nasAlias</alias_names>
+                </litp:alias>
+              </litp:alias-cluster-config-aliases-collection>
+            </litp:alias-cluster-config>
+          </litp:cluster-configs-collection>
+          <litp:cluster-nodes-collection id="nodes">
+            <litp:node id="n1">
+              <hostname>dot66-node1</hostname>
+              <litp:node-configs-collection id="configs">
+                <litp:firewall-node-config id="fw_config">
+                  <drop_all>true</drop_all>
+                  <litp:firewall-node-config-rules-collection id="rules">
+                    <litp:firewall-rule id="fw_icmp">
+                      <action>accept</action>
+                      <name>100 icmp</name>
+                      <proto>icmp</proto>
+                    </litp:firewall-rule>
+                    <litp:firewall-rule id="fw_nfstcp">
+                      <action>accept</action>
+                      <dport>111,1110,2049,4045</dport>
+                      <name>001 nfstcp</name>
+                      <proto>tcp</proto>
+                      <state>NEW</state>
+                    </litp:firewall-rule>
+                    <litp:firewall-rule id="fw_nfsudp">
+                      <action>accept</action>
+                      <dport>111,1110,2049,4045</dport>
+                      <name>011 nfsudp</name>
+                      <proto>udp</proto>
+                      <state>NEW</state>
+                    </litp:firewall-rule>
+                  </litp:firewall-node-config-rules-collection>
+                </litp:firewall-node-config>
+              </litp:node-configs-collection>
+              <litp:node-file_systems-collection id="file_systems">
+                <litp:nfs-file-system-link id="fs1">
+                  <name>fs1</name>
+                </litp:nfs-file-system-link>
+              </litp:node-file_systems-collection>
+              <litp:node-items-collection id="items">
+                <litp:ntp-service-link id="ntp1">
+                  <name>ntp1</name>
+                </litp:ntp-service-link>
+              </litp:node-items-collection>
+              <litp:node-network_interfaces-collection id="network_interfaces">
+                <litp:eth id="if0">
+                  <ipaddress>10.44.86.67</ipaddress>
+                  <network_name>mgmt</network_name>
+                  <device_name>eth0</device_name>
+                  <macaddress>98:4B:E1:69:30:40</macaddress>
+                </litp:eth>
+                <litp:eth id="if1">
+                  <ipaddress>10.44.235.101</ipaddress>
+                  <network_name>data</network_name>
+                  <device_name>eth1</device_name>
+                  <macaddress>98:4B:E1:69:30:44</macaddress>
+                </litp:eth>
+                <litp:eth id="if2">
+                  <network_name>heartbeat1</network_name>
+                  <device_name>eth2</device_name>
+                  <macaddress>98:4B:E1:69:30:41</macaddress>
+                </litp:eth>
+                <litp:eth id="if3">
+                  <network_name>heartbeat2</network_name>
+                  <device_name>eth3</device_name>
+                  <macaddress>98:4B:E1:69:30:45</macaddress>
+                </litp:eth>
+              </litp:node-network_interfaces-collection>
+              <litp:os-profile-link id="os">
+                <name>os-profile1</name>
+              </litp:os-profile-link>
+              <litp:node-routes-collection id="routes">
+                <litp:route-link id="route1">
+                  <name>default</name>
+                </litp:route-link>
+                <litp:route-link id="route2">
+                  <name>route2</name>
+                </litp:route-link>
+                <litp:route-link id="route3">
+                  <name>route3</name>
+                </litp:route-link>
+                <litp:route-link id="route4">
+                  <name>route4</name>
+                </litp:route-link>
+                <litp:route-link id="route5">
+                  <name>route5</name>
+                </litp:route-link>
+              </litp:node-routes-collection>
+              <litp:storage-profile-link id="storage_profile">
+                <storage_profile_name>sp1</storage_profile_name>
+              </litp:storage-profile-link>
+              <litp:blade-link id="system">
+                <system_name>CZ3128LSDF</system_name>
+              </litp:blade-link>
+            </litp:node>
+            <litp:node id="n2">
+              <hostname>dot66-node2</hostname>
+              <litp:node-configs-collection id="configs">
+                <litp:alias-node-config id="alias_config">
+                  <litp:alias-node-config-aliases-collection id="aliases">
+                    <litp:alias id="fwServer">
+                      <address>10.44.86.30</address>
+                      <alias_names>fwServer,dot30,ciNode</alias_names>
+                    </litp:alias>
+                  </litp:alias-node-config-aliases-collection>
+                </litp:alias-node-config>
+                <litp:firewall-node-config id="fw_config">
+                  <drop_all>true</drop_all>
+                  <litp:firewall-node-config-rules-collection id="rules">
+                    <litp:firewall-rule id="fw_icmp">
+                      <action>accept</action>
+                      <name>100 icmp</name>
+                      <proto>icmp</proto>
+                    </litp:firewall-rule>
+                    <litp:firewall-rule id="fw_nfstcp">
+                      <action>accept</action>
+                      <dport>111,1110,2049,4045</dport>
+                      <name>001 nfstcp</name>
+                      <proto>tcp</proto>
+                      <state>NEW</state>
+                    </litp:firewall-rule>
+                    <litp:firewall-rule id="fw_nfsudp">
+                      <action>accept</action>
+                      <dport>111,1110,2049,4045</dport>
+                      <name>011 nfsudp</name>
+                      <proto>udp</proto>
+                      <state>NEW</state>
+                    </litp:firewall-rule>
+                  </litp:firewall-node-config-rules-collection>
+                </litp:firewall-node-config>
+              </litp:node-configs-collection>
+              <litp:node-file_systems-collection id="file_systems">
+                <litp:nfs-file-system-link id="fs1">
+                  <name>fs1</name>
+                </litp:nfs-file-system-link>
+              </litp:node-file_systems-collection>
+              <litp:node-items-collection id="items">
+                <litp:ntp-service-link id="ntp1">
+                  <name>ntp1</name>
+                </litp:ntp-service-link>
+              </litp:node-items-collection>
+              <litp:node-network_interfaces-collection id="network_interfaces">
+                <litp:eth id="if0">
+                  <ipaddress>10.44.86.68</ipaddress>
+                  <network_name>mgmt</network_name>
+                  <device_name>eth0</device_name>
+                  <macaddress>98:4B:E1:69:30:C8</macaddress>
+                </litp:eth>
+                <litp:eth id="if1">
+                  <ipaddress>10.44.235.102</ipaddress>
+                  <network_name>data</network_name>
+                  <device_name>eth1</device_name>
+                  <macaddress>98:4B:E1:69:30:CC</macaddress>
+                </litp:eth>
+                <litp:eth id="if2">
+                  <network_name>heartbeat1</network_name>
+                  <device_name>eth2</device_name>
+                  <macaddress>98:4B:E1:69:30:C9</macaddress>
+                </litp:eth>
+                <litp:eth id="if3">
+                  <network_name>heartbeat2</network_name>
+                  <device_name>eth3</device_name>
+                  <macaddress>98:4B:E1:69:30:CD</macaddress>
+                </litp:eth>
+              </litp:node-network_interfaces-collection>
+              <litp:os-profile-link id="os">
+                <name>os-profile1</name>
+              </litp:os-profile-link>
+              <litp:node-routes-collection id="routes">
+                <litp:route-link id="route1">
+                  <name>default</name>
+                </litp:route-link>
+                <litp:route-link id="route2">
+                  <name>route2</name>
+                </litp:route-link>
+                <litp:route-link id="route3">
+                  <name>route3</name>
+                </litp:route-link>
+                <litp:route-link id="route4">
+                  <name>route4</name>
+                </litp:route-link>
+                <litp:route-link id="route5">
+                  <name>route5</name>
+                </litp:route-link>
+              </litp:node-routes-collection>
+              <litp:storage-profile-link id="storage_profile">
+                <storage_profile_name>sp1</storage_profile_name>
+              </litp:storage-profile-link>
+              <litp:blade-link id="system">
+                <system_name>CZ3128LSEH</system_name>
+              </litp:blade-link>
+            </litp:node>
+          </litp:cluster-nodes-collection>
+          <litp:cluster-services-collection id="services">
+            <litp:vcs-clustered-service id="cups">
+              <active>1</active>
+              <name>FO_vcs1</name>
+              <standby>1</standby>
+              <litp:clustered-service-dependencies-collection id="dependencies"/>
+              <litp:clustered-service-nodes-collection id="nodes">
+                <litp:node-link id="node1">
+                  <hostname>dot66-node1</hostname>
+                </litp:node-link>
+                <litp:node-link id="node2">
+                  <hostname>dot66-node2</hostname>
+                </litp:node-link>
+              </litp:clustered-service-nodes-collection>
+              <litp:clustered-service-runtimes-collection id="runtimes">
+                <litp:lsb-runtime id="cups">
+                  <cleanup_command>/opt/ericsson/cleanup_cups.sh</cleanup_command>
+                  <litp:runtime-entity-packages-collection id="packages">
+                    <litp:package-link id="pkg1">
+                      <name>cups</name>
+                    </litp:package-link>
+                  </litp:runtime-entity-packages-collection>
+                  <name>cups</name>
+                  <service_name>cups</service_name>
+                  <litp:lsb-runtime-filesystems-collection id="filesystems"/>
+                  <litp:lsb-runtime-ipaddresses-collection id="ipaddresses"/>
+                </litp:lsb-runtime>
+              </litp:clustered-service-runtimes-collection>
+              <online_timeout>45</online_timeout>
+            </litp:vcs-clustered-service>
+            <litp:vcs-clustered-service id="httpd">
+              <active>2</active>
+              <name>PL_vcs1</name>
+              <standby>0</standby>
+              <litp:clustered-service-dependencies-collection id="dependencies"/>
+              <litp:clustered-service-nodes-collection id="nodes">
+                <litp:node-link id="node1">
+                  <hostname>dot66-node1</hostname>
+                </litp:node-link>
+                <litp:node-link id="node2">
+                  <hostname>dot66-node2</hostname>
+                </litp:node-link>
+              </litp:clustered-service-nodes-collection>
+              <litp:clustered-service-runtimes-collection id="runtimes">
+                <litp:lsb-runtime id="httpd">
+                  <cleanup_command>/opt/ericsson/cleanup_httpd.sh</cleanup_command>
+                  <litp:runtime-entity-packages-collection id="packages">
+                    <litp:package-link id="pkg1">
+                      <name>httpd</name>
+                    </litp:package-link>
+                  </litp:runtime-entity-packages-collection>
+                  <name>httpd</name>
+                  <service_name>httpd</service_name>
+                  <litp:lsb-runtime-filesystems-collection id="filesystems"/>
+                  <litp:lsb-runtime-ipaddresses-collection id="ipaddresses"/>
+                </litp:lsb-runtime>
+              </litp:clustered-service-runtimes-collection>
+              <online_timeout>60</online_timeout>
+            </litp:vcs-clustered-service>
+            <litp:vcs-clustered-service id="postfix">
+              <active>1</active>
+              <name>FO_vcs2</name>
+              <standby>1</standby>
+              <litp:clustered-service-dependencies-collection id="dependencies"/>
+              <litp:clustered-service-nodes-collection id="nodes">
+                <litp:node-link id="node1">
+                  <hostname>dot66-node1</hostname>
+                </litp:node-link>
+                <litp:node-link id="node2">
+                  <hostname>dot66-node2</hostname>
+                </litp:node-link>
+              </litp:clustered-service-nodes-collection>
+              <litp:clustered-service-runtimes-collection id="runtimes">
+                <litp:lsb-runtime id="postfix">
+                  <cleanup_command>/opt/ericsson/cleanup_postfix.sh</cleanup_command>
+                  <litp:runtime-entity-packages-collection id="packages">
+                    <litp:package-link id="pkg1">
+                      <name>postfix</name>
+                    </litp:package-link>
+                  </litp:runtime-entity-packages-collection>
+                  <name>postfix</name>
+                  <service_name>postfix</service_name>
+                  <litp:lsb-runtime-filesystems-collection id="filesystems"/>
+                  <litp:lsb-runtime-ipaddresses-collection id="ipaddresses"/>
+                </litp:lsb-runtime>
+              </litp:clustered-service-runtimes-collection>
+              <online_timeout>45</online_timeout>
+            </litp:vcs-clustered-service>
+            <litp:vcs-clustered-service id="ricci">
+              <active>2</active>
+              <name>PL_vcs2</name>
+              <standby>0</standby>
+              <litp:clustered-service-dependencies-collection id="dependencies"/>
+              <litp:clustered-service-nodes-collection id="nodes">
+                <litp:node-link id="node1">
+                  <hostname>dot66-node1</hostname>
+                </litp:node-link>
+                <litp:node-link id="node2">
+                  <hostname>dot66-node2</hostname>
+                </litp:node-link>
+              </litp:clustered-service-nodes-collection>
+              <litp:clustered-service-runtimes-collection id="runtimes">
+                <litp:lsb-runtime id="ricci">
+                  <cleanup_command>/opt/ericsson/cleanup_ricci.sh</cleanup_command>
+                  <litp:runtime-entity-packages-collection id="packages">
+                    <litp:package-link id="pkg1">
+                      <name>ricci</name>
+                    </litp:package-link>
+                  </litp:runtime-entity-packages-collection>
+                  <name>ricci</name>
+                  <service_name>ricci</service_name>
+                  <litp:lsb-runtime-filesystems-collection id="filesystems"/>
+                  <litp:lsb-runtime-ipaddresses-collection id="ipaddresses"/>
+                </litp:lsb-runtime>
+              </litp:clustered-service-runtimes-collection>
+              <online_timeout>60</online_timeout>
+            </litp:vcs-clustered-service>
+          </litp:cluster-services-collection>
+          <litp:cluster-software-collection id="software"/>
+          <cluster_id>4766</cluster_id>
+          <cluster_type>vcs</cluster_type>
+          <llt_nets>heartbeat1,heartbeat2</llt_nets>
+          <low_prio_net>mgmt</low_prio_net>
+          <litp:vcs-cluster-fencing_disks-collection id="fencing_disks"/>
+        </litp:vcs-cluster>
+      </litp:deployment-clusters-collection>
+    </litp:deployment>
+  </litp:root-deployments-collection>
+  <litp:infrastructure id="infrastructure">
+    <litp:infrastructure-items-collection id="items"/>
+    <litp:networking id="networking">
+      <litp:networking-networks-collection id="networks">
+        <litp:network id="data">
+          <litp_management>false</litp_management>
+          <name>data</name>
+          <subnet>10.44.235.0/24</subnet>
+        </litp:network>
+        <litp:network id="heartbeat1">
+          <litp_management>false</litp_management>
+          <name>heartbeat1</name>
+        </litp:network>
+        <litp:network id="heartbeat2">
+          <litp_management>false</litp_management>
+          <name>heartbeat2</name>
+        </litp:network>
+        <litp:network id="mgmt">
+          <litp_management>true</litp_management>
+          <name>mgmt</name>
+          <subnet>10.44.86.64/26</subnet>
+        </litp:network>
+      </litp:networking-networks-collection>
+      <litp:networking-routes-collection id="routes">
+        <litp:route id="route1">
+          <name>default</name>
+          <gateway>10.44.86.65</gateway>
+          <subnet>0.0.0.0/0</subnet>
+        </litp:route>
+        <litp:route id="route2">
+          <name>route2</name>
+          <gateway>10.44.86.65</gateway>
+          <subnet>10.44.86.0/26</subnet>
+        </litp:route>
+        <litp:route id="route3">
+          <name>route3</name>
+          <gateway>10.44.86.65</gateway>
+          <subnet>10.44.86.128/26</subnet>
+        </litp:route>
+        <litp:route id="route4">
+          <name>route4</name>
+          <gateway>10.44.86.65</gateway>
+          <subnet>10.44.86.192/26</subnet>
+        </litp:route>
+        <litp:route id="route5">
+          <name>route5</name>
+          <gateway>10.44.86.65</gateway>
+          <subnet>10.44.84.0/24</subnet>
+        </litp:route>
+      </litp:networking-routes-collection>
+    </litp:networking>
+    <litp:infrastructure-service_providers-collection id="service_providers"/>
+    <litp:storage id="storage">
+      <litp:storage-file_systems-collection id="file_systems">
+        <litp:nfs-file-system id="fs1">
+          <mount_options>soft,intr</mount_options>
+          <mount_point>/storobs</mount_point>
+          <name>fs1</name>
+          <network_name>mgmt</network_name>
+          <litp:nfs-export-link id="export">
+            <name>ex1</name>
+          </litp:nfs-export-link>
+          <litp:nfs-virtual-server-link id="vip">
+            <name>vip</name>
+          </litp:nfs-virtual-server-link>
+        </litp:nfs-file-system>
+      </litp:storage-file_systems-collection>
+      <litp:storage-storage_profiles-collection id="storage_profiles">
+        <litp:storage-profile id="profile_1">
+          <storage_profile_name>sp1</storage_profile_name>
+          <volume_driver>lvm</volume_driver>
+          <litp:storage-profile-volume_groups-collection id="volume_groups">
+            <litp:volume-group id="vg1">
+              <volume_group_name>vg_root</volume_group_name>
+              <litp:volume-group-file_systems-collection id="file_systems">
+                <litp:file-system id="root">
+                  <mount_point>/</mount_point>
+                  <size>8G</size>
+                  <snap_size>100</snap_size>
+                  <type>ext4</type>
+                </litp:file-system>
+                <litp:file-system id="swap">
+                  <mount_point>swap</mount_point>
+                  <size>2G</size>
+                  <snap_size>100</snap_size>
+                  <type>swap</type>
+                </litp:file-system>
+              </litp:volume-group-file_systems-collection>
+              <litp:volume-group-physical_devices-collection id="physical_devices">
+                <litp:physical-device id="internal">
+                  <device_name>hd0</device_name>
+                </litp:physical-device>
+              </litp:volume-group-physical_devices-collection>
+            </litp:volume-group>
+            <litp:volume-group id="vg2">
+              <volume_group_name>vg_secondDisk</volume_group_name>
+              <litp:volume-group-file_systems-collection id="file_systems">
+                <litp:file-system id="disk2FS1">
+                  <mount_point>/mp_disk2fs1</mount_point>
+                  <size>8G</size>
+                  <snap_size>100</snap_size>
+                  <type>ext4</type>
+                </litp:file-system>
+                <litp:file-system id="disk2FS2">
+                  <mount_point>/mp_disk2fs2</mount_point>
+                  <size>1G</size>
+                  <snap_size>100</snap_size>
+                  <type>ext4</type>
+                </litp:file-system>
+                <litp:file-system id="disk2FS3">
+                  <mount_point>/mp_disk2fs3</mount_point>
+                  <size>1G</size>
+                  <snap_size>100</snap_size>
+                  <type>ext4</type>
+                </litp:file-system>
+                <litp:file-system id="disk2FS4">
+                  <mount_point>/mp_disk2fs4</mount_point>
+                  <size>1G</size>
+                  <snap_size>100</snap_size>
+                  <type>ext4</type>
+                </litp:file-system>
+                <litp:file-system id="disk2FS5">
+                  <mount_point>/mp_disk2fs5</mount_point>
+                  <size>1G</size>
+                  <snap_size>100</snap_size>
+                  <type>ext4</type>
+                </litp:file-system>
+              </litp:volume-group-file_systems-collection>
+              <litp:volume-group-physical_devices-collection id="physical_devices">
+                <litp:physical-device id="internal">
+                  <device_name>hd1</device_name>
+                </litp:physical-device>
+              </litp:volume-group-physical_devices-collection>
+            </litp:volume-group>
+          </litp:storage-profile-volume_groups-collection>
+        </litp:storage-profile>
+      </litp:storage-storage_profiles-collection>
+      <litp:storage-storage_providers-collection id="storage_providers">
+        <litp:nfs-service id="nfs_service">
+          <management_ip>10.44.86.231</management_ip>
+          <password>master</password>
+          <service_name>sfs1</service_name>
+          <service_type>SFS</service_type>
+          <user_name>master</user_name>
+          <litp:nfs-service-exports-collection id="exports">
+            <litp:nfs-export id="ex1">
+              <allowed_clients>10.44.86.67,10.44.86.68</allowed_clients>
+              <export_options>secure,ro,no_root_squash</export_options>
+              <file_system>fs1</file_system>
+              <name>ex1</name>
+              <prefix>/vx/ST66</prefix>
+            </litp:nfs-export>
+          </litp:nfs-service-exports-collection>
+          <litp:nfs-service-ip_addresses-collection id="ip_addresses">
+            <litp:nfs-virtual-server id="vip">
+              <address>10.44.86.230</address>
+              <name>vip</name>
+            </litp:nfs-virtual-server>
+          </litp:nfs-service-ip_addresses-collection>
+        </litp:nfs-service>
+      </litp:storage-storage_providers-collection>
+    </litp:storage>
+    <litp:infrastructure-system_providers-collection id="system_providers"/>
+    <litp:infrastructure-systems-collection id="systems">
+      <litp:blade id="sys1">
+        <system_name>CZ3218HDVY</system_name>
+        <litp:system-disks-collection id="disks"/>
+      </litp:blade>
+      <litp:blade id="sys2">
+        <system_name>CZ3128LSDF</system_name>
+        <litp:system-disks-collection id="disks">
+          <litp:disk id="disk0">
+            <bootable>true</bootable>
+            <name>hd0</name>
+            <size>28G</size>
+            <uuid>6006016011602d00b876aba083c1e311</uuid>
+          </litp:disk>
+          <litp:disk id="disk1">
+            <bootable>false</bootable>
+            <name>hd1</name>
+            <size>28G</size>
+            <uuid>6006016011602d00fc591db783c1e311</uuid>
+          </litp:disk>
+        </litp:system-disks-collection>
+        <litp:bmc id="bmc">
+          <ipaddress>10.44.84.10</ipaddress>
+          <password_key>key-for-root</password_key>
+          <username>root</username>
+        </litp:bmc>
+      </litp:blade>
+      <litp:blade id="sys3">
+        <system_name>CZ3128LSEH</system_name>
+        <litp:system-disks-collection id="disks">
+          <litp:disk id="disk0">
+            <bootable>true</bootable>
+            <name>hd0</name>
+            <size>28G</size>
+            <uuid>6006016011602d00fac5a6c883c1e311</uuid>
+          </litp:disk>
+          <litp:disk id="disk1">
+            <bootable>false</bootable>
+            <name>hd1</name>
+            <size>28G</size>
+            <uuid>6006016011602d0016e4c7db83c1e311</uuid>
+          </litp:disk>
+        </litp:system-disks-collection>
+        <litp:bmc id="bmc">
+          <ipaddress>10.44.84.15</ipaddress>
+          <password_key>key-for-root</password_key>
+          <username>root</username>
+        </litp:bmc>
+      </litp:blade>
+    </litp:infrastructure-systems-collection>
+  </litp:infrastructure>
+  <litp:ms id="ms">
+    <hostname>dot66-ms1</hostname>
+    <litp:ms-configs-collection id="configs">
+      <litp:alias-node-config id="alias_config">
+        <litp:alias-node-config-aliases-collection id="aliases">
+          <litp:alias id="ntp_alias1">
+            <address>10.44.86.30</address>
+            <alias_names>ntpAliasName1</alias_names>
+          </litp:alias>
+          <litp:alias id="ntp_alias2">
+            <address>127.127.1.0</address>
+            <alias_names>ntpAliasName2</alias_names>
+          </litp:alias>
+        </litp:alias-node-config-aliases-collection>
+      </litp:alias-node-config>
+      <litp:firewall-node-config id="fw_config">
+        <drop_all>true</drop_all>
+        <litp:firewall-node-config-rules-collection id="rules">
+          <litp:firewall-rule id="fw_icmp">
+            <action>accept</action>
+            <name>100 icmp</name>
+            <proto>icmp</proto>
+          </litp:firewall-rule>
+          <litp:firewall-rule id="fw_nfstcp">
+            <action>accept</action>
+            <dport>111,1110,2049,4045</dport>
+            <name>001 nfstcp</name>
+            <proto>tcp</proto>
+            <state>NEW</state>
+          </litp:firewall-rule>
+          <litp:firewall-rule id="fw_nfsudp">
+            <action>accept</action>
+            <dport>111,1110,2049,4045</dport>
+            <name>011 nfsudp</name>
+            <proto>udp</proto>
+            <state>NEW</state>
+          </litp:firewall-rule>
+        </litp:firewall-node-config-rules-collection>
+      </litp:firewall-node-config>
+    </litp:ms-configs-collection>
+    <litp:ms-items-collection id="items">
+      <litp:ntp-service-link id="ntp">
+        <name>ntp1</name>
+      </litp:ntp-service-link>
+    </litp:ms-items-collection>
+    <litp:ms-network_interfaces-collection id="network_interfaces">
+      <litp:eth id="if0">
+        <ipaddress>10.44.86.66</ipaddress>
+        <network_name>mgmt</network_name>
+        <device_name>eth0</device_name>
+        <macaddress>80:C1:6E:7A:8B:28</macaddress>
+      </litp:eth>
+      <litp:eth id="if1">
+        <ipaddress>10.44.235.100</ipaddress>
+        <network_name>data</network_name>
+        <device_name>eth1</device_name>
+        <macaddress>80:C1:6E:7A:8B:2C</macaddress>
+      </litp:eth>
+    </litp:ms-network_interfaces-collection>
+    <litp:ms-routes-collection id="routes">
+      <litp:route-link id="route1">
+        <name>default</name>
+      </litp:route-link>
+      <litp:route-link id="route2">
+        <name>route2</name>
+      </litp:route-link>
+      <litp:route-link id="route3">
+        <name>route3</name>
+      </litp:route-link>
+      <litp:route-link id="route4">
+        <name>route4</name>
+      </litp:route-link>
+      <litp:route-link id="route5">
+        <name>route5</name>
+      </litp:route-link>
+    </litp:ms-routes-collection>
+    <litp:ms-services-collection id="services">
+      <litp:cobbler-service id="cobbler">
+        <authentication>authn_configfile</authentication>
+        <ksm_ksname>litp.ks</ksm_ksname>
+        <ksm_path>/var/lib/cobbler/kickstarts</ksm_path>
+        <ksm_selinux_mode>enforcing</ksm_selinux_mode>
+        <manage_dhcp>true</manage_dhcp>
+        <manage_dns>false</manage_dns>
+        <puppet_auto_setup>true</puppet_auto_setup>
+        <remove_old_puppet_certs_automatically>true</remove_old_puppet_certs_automatically>
+        <rsync_disabled>false</rsync_disabled>
+        <sign_puppet_certs_automatically>true</sign_puppet_certs_automatically>
+      </litp:cobbler-service>
+    </litp:ms-services-collection>
+    <litp:blade-link id="system">
+      <system_name>CZ3218HDVY</system_name>
+    </litp:blade-link>
+  </litp:ms>
+  <litp:root-plans-collection id="plans"/>
+  <litp:software id="software">
+    <litp:software-deployables-collection id="deployables"/>
+    <litp:software-items-collection id="items">
+      <litp:package id="cups">
+        <name>cups</name>
+      </litp:package>
+      <litp:package id="httpd">
+        <name>httpd</name>
+      </litp:package>
+      <litp:ntp-service id="ntp1">
+        <name>ntp1</name>
+        <litp:ntp-service-servers-collection id="servers">
+          <litp:ntp-server id="server1">
+            <server>ntpAliasName1</server>
+          </litp:ntp-server>
+          <litp:ntp-server id="server2">
+            <server>ntpAliasName2</server>
+          </litp:ntp-server>
+        </litp:ntp-service-servers-collection>
+      </litp:ntp-service>
+      <litp:package id="postfix">
+        <name>postfix</name>
+      </litp:package>
+      <litp:package id="ricci">
+        <name>ricci</name>
+      </litp:package>
+    </litp:software-items-collection>
+    <litp:software-profiles-collection id="profiles">
+      <litp:os-profile id="os_prof1">
+        <arch>x86_64</arch>
+        <breed>redhat</breed>
+        <kopts_post>console=ttyS0,115200</kopts_post>
+        <name>os-profile1</name>
+        <path>/var/www/html/6/os/x86_64/</path>
+        <version>rhel6</version>
+      </litp:os-profile>
+    </litp:software-profiles-collection>
+    <litp:software-runtimes-collection id="runtimes"/>
+  </litp:software>
+</litp:root>

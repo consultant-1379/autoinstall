@@ -1,0 +1,26 @@
+#!/usr/bin/expect
+
+set cmd     [lindex $argv 0]
+set root_pw [lindex $argv 1]
+set usr_pw [lindex $argv 2]
+set usr [lindex $argv 3]
+set hostname [lindex $argv 4]
+
+spawn ssh $usr@$hostname
+expect "assword: "
+send "$usr_pw\r"
+expect " ~]$ "
+send "su\r"
+expect "assword: "
+send "$root_pw\r"
+expect " ~]# "
+send "$cmd\r"
+expect " ~]# "
+send "exit\r"
+expect " ~]$ "
+send "exit\r"
+expect eof
+
+
+
+

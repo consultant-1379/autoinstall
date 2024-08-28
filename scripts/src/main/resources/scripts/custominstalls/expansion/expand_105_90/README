@@ -1,0 +1,8 @@
+# File to setup .105 system as 1 cluster with 2 nodes (no VXVM)
+sh ./install105_forexpansion.sh ./10.44.86.105.sh
+
+
+# File to expand to 3 nodes - using node1dot90 (ilo=10.44.84.44)
+sh ./expand105_90.sh
+
+Don't forget to switch off the added machine before reinstalling .105

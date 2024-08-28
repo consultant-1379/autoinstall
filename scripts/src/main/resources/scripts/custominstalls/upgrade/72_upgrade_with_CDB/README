@@ -1,0 +1,62 @@
+=============================================
+Prequesites
+=============================================
+72 is installed with a iso from previous sprint. This may also include an older version of os patches.
+
+Copy over latest ISO, and latest patches to MS
+OS PATCHES:  http://10.44.86.30/iso/RHEL_Patches/6.6_Revxxx/....
+
+
+=============================================
+Unzip & import patches
+=============================================
+/bin/tar -C /tmp/ -xvzf /tmp/ERICrhel_CXP9026826-3.0.11.tar.gz >/tmp/rhel_patches_out.txt 2>&1
+litp import /tmp/RHEL/RHEL6_6.z-3.0.11/packages/ /var/www/html/6/updates/x86_64/Packages/
+
+=============================================
+# Copy over packages from .30 & import
+=============================================
+scp root@10.44.86.30:/ISO/package-test/* /tmp/lsb_pkg/
+
+litp import /tmp/test_service-2.0-1.noarch.rpm 3pp
+litp import /tmp/lsb_pkg 3pp
+
+=============================================
+upgrade litp 
+=============================================
+
+Follow the Upgrade Instructions from LITP User Community
+
+=============================================
+Load CDB XML and cleanup model commands
+=============================================
+litp remove_snapshot
+ - in oreder to include the FS changes from CDB
+
+cat dep72_afterCDB.xml | grep -v adaptor_version | grep -v _map | grep -v checksum > root.xml
+Edit the XML mount option of client addr - return to 10.44.86.73 (from 10.44.86.97)
+litp load -p / -f root.xml --merge
+
+litp update -p /deployments/d1/clusters/c2/services/SG_STvm2/applications/vmservice2/vm_network_interfaces/vm_nic0 -d gateway
+
+# needed due to functional_01
+/bin/mkdir /var/www/html/newRepo_dir
+/bin/cp  /var/www/html/6/os/x86_64/Packages/gnome-bluetooth-2*x86_64* /tmp/gnomebluetooth.rpm
+/usr/bin/litp import /tmp/gnomebluetooth.rpm /var/www/html/newRepo_dir
+litp create_plan; litp show_plan
+
+=============================================
+Run add_extra_tasks.sh to add extra tasks
+=============================================
+sh add_extra_tasks.sh
+litp create_plan; litp show_plan
+
+=============================================
+Run upgrade command 
+=============================================
+litp upgrade -p /deployments/d1
+litp create_plan; litp show_plan
+
+
+
+

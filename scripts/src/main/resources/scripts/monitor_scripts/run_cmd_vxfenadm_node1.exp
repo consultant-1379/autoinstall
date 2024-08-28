@@ -1,0 +1,21 @@
+#!/usr/bin/expect
+
+set hostname node1
+set password p3erS3rv3r
+set password_root @dm1nS3rv3r
+set cmd "vxfenadm -d"
+
+spawn ssh litp-admin@$hostname
+expect "assword: "
+send "$password\r"
+expect " ~]$ "
+send "su - root\r"
+expect "assword: "
+send "$password_root\r"
+expect " ~]# "
+send "$cmd\r"
+expect " ~]# "
+send "logout\r"
+expect " ~]$ "
+send "logout\r"
+expect eof

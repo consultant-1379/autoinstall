@@ -1,0 +1,49 @@
+#!/usr/bin/expect -f
+set success false
+
+set cmd     [lindex $argv 0]
+set root_pw [lindex $argv 1]
+set usr_pw [lindex $argv 2]
+set usr [lindex $argv 3]
+set hostname [lindex $argv 4]
+
+spawn ssh $usr@$hostname
+expect {
+  -re ".*es.*o.*" {
+    exp_send "yes\r"
+    exp_continue
+  }
+  -re ".*password" {
+    exp_send "$usr_pw\r"
+    exp_continue
+  }
+  -re ".*~].*" {
+    if {$success == true} {
+	exp_send "exit\r"
+    } else {
+    exp_send "su\r"
+    exp_continue
+   }
+  }
+  -re "Password:.*" {
+    exp_send "$root_pw\r"
+    exp_continue
+  }
+  -re ".*]#.*" {
+    exp_send "$cmd;exit\r"
+    set success true 
+    exp_continue
+  }
+}
+
+##If we ran out command return success
+if {$success == true} {
+exit 0
+##return 1 password not set
+} else {
+exit 1
+}
+
+
+
+

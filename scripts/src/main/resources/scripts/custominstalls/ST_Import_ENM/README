@@ -1,0 +1,37 @@
+# Steps to import ENM ISO into your deployment
+# For use with LITP isos after 2.85.5
+
+1) Include the following lines in the clusterfile of your deployment
+                           
+# this is used to copy over the ENM ISO and needs to be updated if changing the ENM ISO
+copytestfileXX="/ISO/ST-enm-iso/ERICenm_CXP9027091-1.63.96.iso:/tmp/ERICenm_CXP9027091-1.63.96.iso"
+# this is the XML used to create all the package and package list items under /software
+copytestfileXX="/ISO/ST-enm-iso/enm_package_2.xml:/tmp/enm_package_2.xml"
+# bash script that handles the import the ENM ISO and polling maintenace mode to see when it completes
+copytestfileXX="/ISO/ST-enm-iso/import_iso.sh:/tmp/import_iso.sh"
+# expect script to run the import_iso.sh script as root - it also removes a plugin using yum that causes restore_snapshot to break
+copytestfileXX="/ISO/ST-enm-iso/root_import_iso.exp:/tmp/root_import_iso.exp"
+
+# variable used by the expect script to import the ISO - needs to be updated if changing the ENM ISO
+enm_iso="/tmp/ERICenm_CXP9027091-1.63.96.iso"
+
+2) The following line must be added to your deployment script in order to carry out the import
+
+expect /tmp/root_import_iso.exp "${ms_host}" "${enm_iso}"
+  
+  - "${ms_host}" = the hostname of your MS
+  - "${enm_iso}" = the path to the ENM ISO on your MS
+  - This should be included at the start of your deployment script as import_iso will turn off DEBUG and your script should turn it back on
+
+3) Create the package and package-list items by loading the above XML
+
+litp load -p /software -f /tmp/enm_package_2.xml --merge
+
+4) To install the packages on the MS
+
+litp inherit -p /ms/items/model_repo -s /software/items/model_repo
+litp inherit -p /ms/items/model_package -s /software/items/model_package
+litp inherit -p /ms/items/ms_repo -s /software/items/ms_repo
+litp inherit -p /ms/items/common_repo -s /software/items/common_repo
+litp inherit -p /ms/items/db_repo -s /software/items/db_repo
+litp inherit -p /ms/items/services_repo -s /software/items/services_repo

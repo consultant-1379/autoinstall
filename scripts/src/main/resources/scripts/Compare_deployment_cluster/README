@@ -1,0 +1,13 @@
+Author: Eimhin Smyth
+Date: 22/03/2017
+
+This script compares expected values in a deployment script to properties listed in a cluster file,
+printing out any values expected by the deployment script that are not found in the cluster file.
+
+To run, simply provide a deployment script and cluster file as arguments, i.e:
+
+$	python compare_deployment_cluster.py deployment_script.sh cluster_file.sh
+
+NOTE: Hasn't been tested extensively as I only needed it for one or two files at time
+of writing. If you're having trouble with/experiencing weird behaviour drop
+me a line and I'll make some improvements.

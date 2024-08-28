@@ -1,0 +1,146 @@
+
+This directory contains xml models of 4 node deployment for MS 10.44.235.51.
+They can be loaded onto an installed MS using this command:
+ /usr/bin/litp load --merge -p / -f <script.xml>
+
+Pre install script is ST_Deployment_8_inherit_Expansion_pre_xml.sh
+
+Or use this jenkins job:
+http://10.44.86.30/jenkins/view/2_1_ST/job/AutoInstall_2.1_Nightly_ST_Deployment_8_51_4_Node/
+
+All have vcs_seed_threshold of 1.
+Each is available as cluster type vcs or sfha - except the version with fencing disks.
+
+51_4_node_sfha_fencing.xml
+cluster type of sfha with fencing disks, SG on all nodes
+
+51_4_node_sfha_1emptynode.xml
+cluster type of sfha, no SG active or standby on node4
+
+51_4_node_sfha_2emptynodes.xml
+cluster type of sfha, no SG active or standby on node4 or node3
+
+51_4_node_sfha_3emptynodes.xml
+cluster type of sfha, no SG active or standby on node4, node3 or node2
+
+
+51_4_node_sfha.xml
+cluster type of sfha, SGs on all 4 nodes
+
+FO
+STvm2 n3,n4
+dovecot n3,n4
+apaches n3,n4
+
+PL
+STvm1 n1
+STvm3 n1,n2,n3,n4
+cups n1,n2,n3,n4
+luci n1,n2,n3,n4
+ricci n3,n4
+
+      [root@node1dot51 ~]# hastatus -sum
+
+-- SYSTEM STATE
+-- System               State                Frozen              
+
+A  node1dot51           RUNNING              0                    
+A  node2dot51           RUNNING              0                    
+A  node3dot51           RUNNING              0                    
+A  node4dot51           RUNNING              0                    
+
+-- GROUP STATE
+-- Group           System               Probed     AutoDisabled    State          
+
+B  Grp_CS_c1_SG_STvm1 node2dot51           Y          N               ONLINE         
+B  Grp_CS_c1_SG_STvm2 node3dot51           Y          N               ONLINE         
+B  Grp_CS_c1_SG_STvm2 node4dot51           Y          N               OFFLINE        
+B  Grp_CS_c1_SG_STvm3 node1dot51           Y          N               ONLINE         
+B  Grp_CS_c1_SG_STvm3 node2dot51           Y          N               ONLINE         
+B  Grp_CS_c1_SG_STvm3 node3dot51           Y          N               ONLINE         
+B  Grp_CS_c1_SG_STvm3 node4dot51           Y          N               ONLINE         
+B  Grp_CS_c1_SG_STvm4 node1dot51           Y          N               ONLINE         
+B  Grp_CS_c1_SG_STvm4 node2dot51           Y          N               ONLINE         
+B  Grp_CS_c1_SG_dovecot node3dot51           Y          N               ONLINE         
+B  Grp_CS_c1_SG_dovecot node4dot51           Y          N               OFFLINE        
+B  Grp_CS_c1_apachecs node3dot51           Y          N               ONLINE         
+B  Grp_CS_c1_apachecs node4dot51           Y          N               OFFLINE        
+B  Grp_CS_c1_cups  node1dot51           Y          N               ONLINE         
+B  Grp_CS_c1_cups  node2dot51           Y          N               ONLINE         
+B  Grp_CS_c1_cups  node3dot51           Y          N               ONLINE         
+B  Grp_CS_c1_cups  node4dot51           Y          N               ONLINE         
+B  Grp_CS_c1_luci  node1dot51           Y          N               ONLINE         
+B  Grp_CS_c1_luci  node2dot51           Y          N               ONLINE         
+B  Grp_CS_c1_luci  node3dot51           Y          N               ONLINE         
+B  Grp_CS_c1_luci  node4dot51           Y          N               ONLINE         
+B  Grp_CS_c1_ricci node3dot51           Y          N               ONLINE         
+B  Grp_CS_c1_ricci node4dot51           Y          N               ONLINE         
+
+
+
+To migrate all SG from n4 ready for contraction from 4 nodes to 3 nodes run these commands:
+
+ litp update -p /deployments/d1/clusters/c1/services/SG_STvm2 -o node_list=n2,n3
+ litp update -p /deployments/d1/clusters/c1/services/SG_STvm3 -o active=3 node_list=n1,n2,n3
+ litp update -p /deployments/d1/clusters/c1/services/SG_STvm3/applications/vmservice3 -o hostnames=51vm3a,51vm3b,51vm3c
+ litp update -p /deployments/d1/clusters/c1/services/SG_STvm3/applications/vmservice3/vm_network_interfaces/vm_nic1 -o ipaddresses=10.46.81.13,10.46.81.14,10.46.81.16
+ litp update -p /deployments/d1/clusters/c1/services/SG_STvm3/applications/vmservice3/vm_network_interfaces/vm_nic2 -o ipaddresses=10.46.81.84,10.46.81.85,10.46.81.87
+ litp update -p /deployments/d1/clusters/c1/services/SG_STvm3/applications/vmservice3/vm_network_interfaces/vm_nic3 -o ipaddresses=10.46.81.143,10.46.81.144,10.46.81.146
+ litp update -p /deployments/d1/clusters/c1/services/apachecs -o node_list=n2,n3
+ litp update -p /deployments/d1/clusters/c1/services/cups -o node_list=n1,n2,n3 active=3
+ litp update -p /deployments/d1/clusters/c1/services/luci -o node_list=n1,n2,n3 active=3
+ litp update -p /deployments/d1/clusters/c1/services/SG_dovecot -o node_list=n2,n3
+ litp update -p /deployments/d1/clusters/c1/services/ricci -o node_list=n2,n3
+
+
+To migrate all SG from n4 and n3 ready for contraction from 4 nodes to 2 nodes run these commands:
+
+litp update -p /deployments/d1/clusters/c1/services/SG_STvm2 -o node_list=n1,n2
+litp update -p /deployments/d1/clusters/c1/services/SG_STvm3 -o active=2 node_list=n1,n2
+litp update -p /deployments/d1/clusters/c1/services/SG_STvm3/applications/vmservice3 -o hostnames=51vm3a,51vm3b
+litp update -p /deployments/d1/clusters/c1/services/SG_STvm3/applications/vmservice3/vm_network_interfaces/vm_nic1 -o ipaddresses=10.46.81.13,10.46.81.14
+litp update -p /deployments/d1/clusters/c1/services/SG_STvm3/applications/vmservice3/vm_network_interfaces/vm_nic2 -o ipaddresses=10.46.81.84,10.46.81.85
+litp update -p /deployments/d1/clusters/c1/services/SG_STvm3/applications/vmservice3/vm_network_interfaces/vm_nic3 -o ipaddresses=10.46.81.143,10.46.81.144
+litp update -p /deployments/d1/clusters/c1/services/apachecs -o node_list=n1,n2
+litp update -p /deployments/d1/clusters/c1/services/cups -o node_list=n1,n2 active=2
+litp update -p /deployments/d1/clusters/c1/services/luci -o node_list=n1,n2 active=2
+litp update -p /deployments/d1/clusters/c1/services/SG_dovecot -o node_list=n1,n2
+litp update -p /deployments/d1/clusters/c1/services/ricci -o node_list=n1,n2
+
+
+
+51_4_node_vcs_multiple_fo.xml
+cluster type of vcs with extra F/O SGs
+
+[root@node1dot51 ~]# hastatus -sum
+
+-- SYSTEM STATE
+-- System               State                Frozen              
+
+A  node1dot51           RUNNING              0                    
+A  node2dot51           RUNNING              0                    
+A  node3dot51           RUNNING              0                    
+A  node4dot51           RUNNING              0                    
+
+-- GROUP STATE
+-- Group           System               Probed     AutoDisabled    State          
+
+B  Grp_CS_c1_SG_STvm1 node2dot51           Y          N               ONLINE         
+B  Grp_CS_c1_SG_STvm2 node3dot51           Y          N               ONLINE         
+B  Grp_CS_c1_SG_STvm2 node4dot51           Y          N               OFFLINE        
+B  Grp_CS_c1_SG_STvm3 node3dot51           Y          N               ONLINE         
+B  Grp_CS_c1_SG_STvm3 node4dot51           Y          N               OFFLINE        
+B  Grp_CS_c1_SG_STvm4 node3dot51           Y          N               ONLINE         
+B  Grp_CS_c1_SG_STvm4 node4dot51           Y          N               OFFLINE        
+B  Grp_CS_c1_SG_dovecot node3dot51           Y          N               ONLINE         
+B  Grp_CS_c1_SG_dovecot node4dot51           Y          N               OFFLINE        
+B  Grp_CS_c1_apachecs node3dot51           Y          N               ONLINE         
+B  Grp_CS_c1_apachecs node4dot51           Y          N               OFFLINE        
+B  Grp_CS_c1_cups  node1dot51           Y          N               ONLINE         
+B  Grp_CS_c1_cups  node2dot51           Y          N               OFFLINE        
+B  Grp_CS_c1_luci  node1dot51           Y          N               ONLINE         
+B  Grp_CS_c1_luci  node2dot51           Y          N               OFFLINE        
+B  Grp_CS_c1_ricci node1dot51           Y          N               ONLINE         
+B  Grp_CS_c1_ricci node2dot51           Y          N               OFFLINE        
+
+

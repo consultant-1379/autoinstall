@@ -1,0 +1,129 @@
+
+BUR MS blade replacement
+***************************************************************************
+
+This describes how to install .105 system and then replace its MS with the machine at 10.44.86.90
+
+Last tested: 03/08/16 iso=2.44.13
+
+1) Check BUR deployment scripts are set up for the test you want to do. Set up takes a long time so important to try and get it right at the start.
+(ST_Deployment_10_inherit_ms_recovery.sh and ms_only_90_BUR_Recovery.sh)
+
+2) Check BUR deployment scripts are upto date. Are there any recent deployment updates that haven't been included?
+
+3) Install .105 system 
+Use ST_Deployment_10_inherit_ms_recovery.sh and the usual cluster file.
+(This script does the following: deploys MS and 2MN, the MS has just one interface - mgmt network) 
+
+4) remove_snapshot on .105 (To ensure the model does not contain snapshot info)
+
+5) Run the backup script on .105 and copy the tarball onto your local machine (litp_backup_<timestamp>.tar.gz)
+mkdir /tmp/test_backup
+/opt/ericsson/nms/litp/bin/litp_state_backup.sh /tmp/test_backup
+
+6) Switch off .105 MS (log in to the ilo at 10.44.84.52 Server Manager-> Server Power)
+
+7) Install .90 as MS only with just one interface
+Use script ms_only_90_BUR_Recovery.sh and cluster file 10.44.86.90_ms_recovery.sh
+(This script does the following: deploys MS only with mgmt ip address=10.44.86.105, the MS has just one interface - mgmt network) 
+
+
+***************************************************************************
+From this point onwards the machine known as .90 has the IP address of 10.44.86.105
+***************************************************************************
+
+
+8) Add everything that is in the original .105 deployment but not present on .90
+(TODO - add these to ms_only_90_BUR_Recovery.sh)
+
+a) image file and md5 file
+sftp> get /ISO/vm-images-test/vm_rhel_7_test_image-1-1.0.1.qcow2 /var/www/html/images/RHEL_7_image.qcow2
+Fetching /ISO/vm-images-test/vm_rhel_7_test_image-1-1.0.1.qcow2 to /var/www/html/images/RHEL_7_image.qcow2
+/ISO/vm-images-test/vm_rhel_7_test_image-1-1. 100%  470MB  26.1MB/s   00:18    
+sftp> 
+[root@Ms1105 ~]# /usr/bin/md5sum /var/www/html/images/RHEL_7_image.qcow2 | cut -d ' ' -f 1 > /var/www/html/images/RHEL_7_image.qcow2.md5
+
+b) import lsb packages
+litp import /tmp/lsb_pkg 3pp
+
+c) import 3pp packages into REPO1
+mkdir /var/www/html/REPO1
+litp import /tmp/3PP-irish-hello-1.0.0-1.noarch.rpm  /var/www/html/REPO1
+litp import /tmp/3PP-czech-hello-1.0.0-1.noarch.rpm /var/www/html/REPO1
+litp import /tmp/3PP-dutch-hello-1.0.0-1.noarch.rpm  /var/www/html/REPO1
+litp import /tmp/3PP-english-hello-1.0.0-1.noarch.rpm /var/www/html/REPO1
+litp import /tmp/3PP-finnish-hello-1.0.0-1.noarch.rpm  /var/www/html/REPO1
+litp import /tmp/3PP-french-hello-1.0.0-1.noarch.rpm  /var/www/html/REPO1
+litp import /tmp/3PP-german-hello-1.0.0-1.noarch.rpm /var/www/html/REPO1
+litp import /tmp/3PP-italian-hello-1.0.0-1.noarch.rpm  /var/www/html/REPO1
+litp import /tmp/3PP-klingon-hello-1.0.0-1.noarch.rpm /var/www/html/REPO1
+litp import /tmp/3PP-polish-hello-1.0.0-1.noarch.rpm  /var/www/html/REPO1
+litp import /tmp/3PP-portuguese-hungarian-slovak-hello-1.0.0-1.noarch.rpm /var/www/html/REPO1
+litp import /tmp/3PP-romanian-hello-1.0.0-1.noarch.rpm  /var/www/html/REPO1
+litp import /tmp/3PP-russian-hello-1.0.0-1.noarch.rpm /var/www/html/REPO1
+litp import /tmp/3PP-serbian-hello-1.0.0-1.noarch.rpm  /var/www/html/REPO1
+litp import /tmp/3PP-spanish-hello-1.0.0-1.noarch.rpm /var/www/html/REPO1
+
+
+9) On .90 peform the following steps:
+
+a) Take backup of contents of /var/lib/litp/core/model and /opt/ericsson/nms/litp/etc/puppet/manifests/plugins
+b) stop http, puppet and litpd
+c) remove the contents of /var/lib/litp/core/model and /opt/ericsson/nms/litp/etc/puppet/manifests/plugins
+d) unpack the original .105 files:
+cd  /
+tar -xvf litp_backup_20160414083002.tar.gz
+e) restart litpd and http but NOT PUPPET
+
+
+10) You then need to update the uuid - to match the disk on .90:
+litp update -p /infrastructure/systems/sys1/disks/d1 -o uuid=600508b1001c808652a9bf54526bd147
+
+11) Update the macaddress of if0 to .90's value:
+litp update -p /ms/network_interfaces/if0 -o macaddress=2C:59:E5:3D:E3:D8
+
+12) Any other model updates you are testing
+
+13) Create and run plan:
+litp create_plan
+litp show_plan
+litp run_plan
+
+14) Restart puppet on the MS
+
+15) Clean certs - to ensure the new MS and the MNs can communicate
+On the MS for each MN:
+puppet cert <MN name>
+
+On each MN:
+[root@node2Dot105 certs]# rm -f /var/lib/puppet/ssl/certs/node2dot105.pem
+[root@node2Dot105 certs]#  puppet agent -t
+
+16) Check logs - puppet should now be running OK on all machines.
+
+
+***************************************************************************
+Clean UP
+***************************************************************************
+1) Reinstall .90 as normal - as .90
+
+2) Power up .105 from the ilo
+
+3) Reinstall .105 as normal
+
+
+
+
+***************************************************************************
+Procedure to undo changes to .90 so that test can be quickly rerun
+***************************************************************************
+I did not have snapshots on the system - as I was making changes to disk sizes so snapshots not allowed.
+So to restore I used the backups taken in step 9a to restore .90 back to its original setup.
+
+a) stop http, puppet and litpd
+b) remove the contents of /var/lib/litp/core/model and /opt/ericsson/nms/litp/etc/puppet/manifests/plugins
+c) unpack the original .90 backups taken in step 9a
+d) restart litpd and http AND PUPPET
+e) check logs to see that puppet is running OK
+
+

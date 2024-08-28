@@ -1,0 +1,4 @@
+Based on the files in the parent directory, contains only the individual node data to help with re-expanding after a contraction to avoid load error "Unable to modify readonly property" when reloading read-only properties which already exist in the model
+
+Load with command like:
+	litp load -p /deployments/d1/clusters/c1/nodes/ -f /tmp/51_4_node_vcs_multiple_fo_node_3.xml

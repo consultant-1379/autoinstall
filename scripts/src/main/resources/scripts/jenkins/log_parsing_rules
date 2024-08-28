@@ -1,0 +1,6 @@
+error /^>> ERROR:/
+warning /^>> WARNING:/
+info /^>> INFO:/
+
+# must be specified at the and
+start /^>> /

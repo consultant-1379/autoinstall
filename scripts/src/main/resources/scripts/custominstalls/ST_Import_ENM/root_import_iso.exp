@@ -1,0 +1,26 @@
+#!/usr/bin/expect
+
+# Expect script to import an ENM ISO 
+# Parameter 1 = MS Hostmane
+set hostname [lindex $argv 0] 
+set enm_iso [lindex $argv 1]
+set root_password "@dm1nS3rv3r"
+
+set timeout 6000
+
+spawn ssh -oStrictHostKeyChecking=no root@$hostname
+expect "password: "
+send "$root_password\r"
+expect " ~]# "
+send "sh /tmp/import_iso.sh $enm_iso\r"
+expect " ~]# "
+# Package remove as it broke 'litp restore_snapshot'
+send "yum remove -y ERIClitpplatformintegration_CXP9032620\r"
+expect " ~]# "
+send "rm -f /var/www/html/litp_plugins/ERIClitpplatformintegration_CXP9032620-1.0.1.rpm\r"
+expect " ~]# "
+send "createrepo /var/www/html/litp_plugins\r"
+expect " ~]# "
+send "logout\r"
+
+expect eof

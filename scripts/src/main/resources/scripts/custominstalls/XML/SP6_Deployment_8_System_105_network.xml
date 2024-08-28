@@ -1,0 +1,436 @@
+<?xml version='1.0' encoding='utf-8'?>
+<litp:root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:litp="http://www.ericsson.com/litp" xsi:schemaLocation="http://www.ericsson.com/litp litp-xml-schema/litp.xsd" id="root">
+  <litp:root-deployments-collection id="deployments">
+    <litp:deployment id="d1">
+      <litp:deployment-clusters-collection id="clusters">
+        <litp:cluster id="c1">
+          <litp:cluster-configs-collection id="configs">
+            <litp:alias-cluster-config id="alias_config">
+              <litp:alias-cluster-config-aliases-collection id="aliases">
+                <litp:alias id="ldap_cluster_alias">
+                  <address>10.10.10.240</address>
+                  <alias_names>ldap-c-alias</alias_names>
+                </litp:alias>
+                <litp:alias id="master_cluster_alias">
+                  <address>10.10.10.100</address>
+                  <alias_names>master-c-alias</alias_names>
+                </litp:alias>
+                <litp:alias id="mysql_queue_cluster_alias">
+                  <address>10.10.10.222</address>
+                  <alias_names>mysql-c-alias,queue-c-alias</alias_names>
+                </litp:alias>
+              </litp:alias-cluster-config-aliases-collection>
+            </litp:alias-cluster-config>
+          </litp:cluster-configs-collection>
+          <litp:cluster-nodes-collection id="nodes">
+            <litp:node id="n1">
+              <hostname>node1dot105</hostname>
+              <node_id>1</node_id>
+              <litp:node-configs-collection id="configs">
+                <litp:alias-node-config id="alias_config">
+                  <litp:alias-node-config-aliases-collection id="aliases">
+                    <litp:alias id="master_node_alias">
+                      <address>10.10.10.10</address>
+                      <alias_names>master-n-alias</alias_names>
+                    </litp:alias>
+                  </litp:alias-node-config-aliases-collection>
+                </litp:alias-node-config>
+              </litp:node-configs-collection>
+              <litp:node-file_systems-collection id="file_systems">
+                <litp:nfs-file-system-link id="fs1">
+                  <name>fs1</name>
+                </litp:nfs-file-system-link>
+                <litp:nfs-file-system-link id="fs2">
+                  <name>fs2</name>
+                </litp:nfs-file-system-link>
+              </litp:node-file_systems-collection>
+              <litp:node-items-collection id="items">
+                <litp:ntp-service-link id="ntp1">
+                  <name>ntp1</name>
+                </litp:ntp-service-link>
+              </litp:node-items-collection>
+              <litp:node-network_interfaces-collection id="network_interfaces">
+                <litp:eth id="if0">
+                  <ipaddress>10.44.86.106</ipaddress>
+                  <network_name>mgmt</network_name>
+                  <device_name>eth0</device_name>
+                  <macaddress>2C:59:E5:3D:D3:80</macaddress>
+                </litp:eth>
+                <litp:eth id="if2">
+                  <device_name>eth2</device_name>
+                  <macaddress>2C:59:E5:3D:D3:81</macaddress>
+                </litp:eth>
+                <litp:eth id="if3">
+                  <device_name>eth3</device_name>
+                  <macaddress>2C:59:E5:3D:D3:85</macaddress>
+                </litp:eth>
+              </litp:node-network_interfaces-collection>
+              <litp:os-profile-link id="os">
+                <name>os-profile1</name>
+              </litp:os-profile-link>
+              <litp:node-routes-collection id="routes">
+                <litp:route-link id="r4">
+                  <name>r4</name>
+                </litp:route-link>
+                <litp:route-link id="r1">
+                  <name>default</name>
+                </litp:route-link>
+                <litp:route-link id="r2">
+                  <name>r2</name>
+                </litp:route-link>
+                <litp:route-link id="r3">
+                  <name>r3</name>
+                </litp:route-link>
+              </litp:node-routes-collection>
+              <litp:storage-profile-link id="storage_profile">
+                <storage_profile_name>sp1</storage_profile_name>
+              </litp:storage-profile-link>
+              <litp:blade-link id="system">
+                <system_name>CZJ33308J7</system_name>
+              </litp:blade-link>
+            </litp:node>
+            <litp:node id="n2">
+              <hostname>node2dot105</hostname>
+              <node_id>2</node_id>
+              <litp:node-configs-collection id="configs">
+                <litp:alias-node-config id="alias_config">
+                  <litp:alias-node-config-aliases-collection id="aliases">
+                    <litp:alias id="master_node_alias">
+                      <address>10.10.10.10</address>
+                      <alias_names>master-n-alias</alias_names>
+                    </litp:alias>
+                  </litp:alias-node-config-aliases-collection>
+                </litp:alias-node-config>
+              </litp:node-configs-collection>
+              <litp:node-file_systems-collection id="file_systems">
+                <litp:nfs-file-system-link id="fs1">
+                  <name>fs1</name>
+                </litp:nfs-file-system-link>
+                <litp:nfs-file-system-link id="fs2">
+                  <name>fs2</name>
+                </litp:nfs-file-system-link>
+              </litp:node-file_systems-collection>
+              <litp:node-items-collection id="items">
+                <litp:ntp-service-link id="ntp1">
+                  <name>ntp1</name>
+                </litp:ntp-service-link>
+              </litp:node-items-collection>
+              <litp:node-network_interfaces-collection id="network_interfaces">
+                <litp:eth id="if0">
+                  <ipaddress>10.44.86.107</ipaddress>
+                  <network_name>mgmt</network_name>
+                  <device_name>eth0</device_name>
+                  <macaddress>2C:59:E5:3F:34:E8</macaddress>
+                </litp:eth>
+                <litp:eth id="if2">
+                  <device_name>eth2</device_name>
+                  <macaddress>2C:59:E5:3F:34:E9</macaddress>
+                </litp:eth>
+                <litp:eth id="if3">
+                  <device_name>eth3</device_name>
+                  <macaddress>2C:59:E5:3F:34:ED</macaddress>
+                </litp:eth>
+              </litp:node-network_interfaces-collection>
+              <litp:os-profile-link id="os">
+                <name>os-profile1</name>
+              </litp:os-profile-link>
+              <litp:node-routes-collection id="routes">
+                <litp:route-link id="r4">
+                  <name>r4</name>
+                </litp:route-link>
+                <litp:route-link id="r1">
+                  <name>default</name>
+                </litp:route-link>
+                <litp:route-link id="r2">
+                  <name>r2</name>
+                </litp:route-link>
+                <litp:route-link id="r3">
+                  <name>r3</name>
+                </litp:route-link>
+              </litp:node-routes-collection>
+              <litp:storage-profile-link id="storage_profile">
+                <storage_profile_name>sp1</storage_profile_name>
+              </litp:storage-profile-link>
+              <litp:blade-link id="system">
+                <system_name>CZJ33308J1</system_name>
+              </litp:blade-link>
+            </litp:node>
+          </litp:cluster-nodes-collection>
+          <litp:cluster-services-collection id="services" />
+          <litp:cluster-software-collection id="software" />
+        </litp:cluster>
+      </litp:deployment-clusters-collection>
+    </litp:deployment>
+  </litp:root-deployments-collection>
+  <litp:infrastructure id="infrastructure">
+    <litp:infrastructure-items-collection id="items" />
+    <litp:networking id="networking">
+      <litp:networking-networks-collection id="networks">
+        <litp:network id="data">
+          <litp_management>false</litp_management>
+          <name>data</name>
+          <subnet>10.44.235.0/24</subnet>
+        </litp:network>
+        <litp:network id="mgmt">
+          <litp_management>true</litp_management>
+          <name>mgmt</name>
+          <subnet>10.44.86.64/26</subnet>
+        </litp:network>
+      </litp:networking-networks-collection>
+      <litp:networking-routes-collection id="routes">
+        <litp:route id="r4">
+          <name>r4</name>
+          <gateway>10.44.86.65</gateway>
+          <subnet>10.44.86.192/26</subnet>
+        </litp:route>
+        <litp:route id="r5">
+          <name>r5</name>
+          <gateway>10.44.86.65</gateway>
+          <subnet>10.44.84.0/24</subnet>
+        </litp:route>
+        <litp:route id="r1">
+          <name>default</name>
+          <gateway>10.44.86.65</gateway>
+          <subnet>0.0.0.0/0</subnet>
+        </litp:route>
+        <litp:route id="r2">
+          <name>r2</name>
+          <gateway>10.44.86.65</gateway>
+          <subnet>10.44.86.0/26</subnet>
+        </litp:route>
+        <litp:route id="r3">
+          <name>r3</name>
+          <gateway>10.44.86.65</gateway>
+          <subnet>10.44.86.128/26</subnet>
+        </litp:route>
+      </litp:networking-routes-collection>
+    </litp:networking>
+    <litp:infrastructure-service_providers-collection id="service_providers" />
+    <litp:storage id="storage">
+      <litp:storage-file_systems-collection id="file_systems">
+        <litp:nfs-file-system id="fs1">
+          <mount_options>soft,intr</mount_options>
+          <mount_point>/cluster1</mount_point>
+          <name>fs1</name>
+          <network_name>mgmt</network_name>
+          <litp:nfs-export-link id="export">
+            <name>ex1</name>
+          </litp:nfs-export-link>
+          <litp:nfs-virtual-server-link id="vip">
+            <name>vip</name>
+          </litp:nfs-virtual-server-link>
+        </litp:nfs-file-system>
+        <litp:nfs-file-system id="fs2">
+          <mount_options>soft,intr</mount_options>
+          <mount_point>/cluster2</mount_point>
+          <name>fs2</name>
+          <network_name>mgmt</network_name>
+          <litp:nfs-export-link id="export">
+            <name>ex2</name>
+          </litp:nfs-export-link>
+          <litp:nfs-virtual-server-link id="vip">
+            <name>vip</name>
+          </litp:nfs-virtual-server-link>
+        </litp:nfs-file-system>
+      </litp:storage-file_systems-collection>
+      <litp:storage-storage_profiles-collection id="storage_profiles">
+        <litp:storage-profile id="profile_1">
+          <storage_profile_name>sp1</storage_profile_name>
+          <volume_driver>lvm</volume_driver>
+          <litp:storage-profile-volume_groups-collection id="volume_groups">
+            <litp:volume-group id="vg1">
+              <volume_group_name>vg_root</volume_group_name>
+              <litp:volume-group-file_systems-collection id="file_systems">
+                <litp:file-system id="root">
+                  <mount_point>/</mount_point>
+                  <size>8G</size>
+                  <snap_size>100</snap_size>
+                  <type>ext4</type>
+                </litp:file-system>
+                <litp:file-system id="swap">
+                  <mount_point>swap</mount_point>
+                  <size>2G</size>
+                  <snap_size>100</snap_size>
+                  <type>swap</type>
+                </litp:file-system>
+              </litp:volume-group-file_systems-collection>
+              <litp:volume-group-physical_devices-collection id="physical_devices">
+                <litp:physical-device id="internal">
+                  <device_name>hd0</device_name>
+                </litp:physical-device>
+              </litp:volume-group-physical_devices-collection>
+            </litp:volume-group>
+          </litp:storage-profile-volume_groups-collection>
+        </litp:storage-profile>
+      </litp:storage-storage_profiles-collection>
+      <litp:storage-storage_providers-collection id="storage_providers">
+        <litp:nfs-service id="nfs_service">
+          <management_ip>10.44.86.231</management_ip>
+          <password>master</password>
+          <service_name>sfs1</service_name>
+          <service_type>SFS</service_type>
+          <user_name>master</user_name>
+          <litp:nfs-service-exports-collection id="exports">
+            <litp:nfs-export id="ex2">
+              <allowed_clients>10.44.86.106,10.44.86.107</allowed_clients>
+              <export_options>secure,ro,no_root_squash</export_options>
+              <file_system>fs2</file_system>
+              <name>ex2</name>
+              <prefix>/vx/ST105</prefix>
+            </litp:nfs-export>
+            <litp:nfs-export id="ex1">
+              <allowed_clients>10.44.86.106,10.44.86.107</allowed_clients>
+              <export_options>secure,ro,no_root_squash</export_options>
+              <file_system>fs1</file_system>
+              <name>ex1</name>
+              <prefix>/vx/ST105</prefix>
+            </litp:nfs-export>
+          </litp:nfs-service-exports-collection>
+          <litp:nfs-service-ip_addresses-collection id="ip_addresses">
+            <litp:nfs-virtual-server id="vip">
+              <address>10.44.86.240</address>
+              <name>vip</name>
+            </litp:nfs-virtual-server>
+          </litp:nfs-service-ip_addresses-collection>
+        </litp:nfs-service>
+      </litp:storage-storage_providers-collection>
+    </litp:storage>
+    <litp:infrastructure-system_providers-collection id="system_providers" />
+    <litp:infrastructure-systems-collection id="systems">
+      <litp:blade id="sys1">
+        <system_name>CZJ33308JD</system_name>
+        <litp:system-disks-collection id="disks" />
+      </litp:blade>
+      <litp:blade id="sys3">
+        <system_name>CZJ33308J1</system_name>
+        <litp:system-disks-collection id="disks">
+          <litp:disk id="disk0">
+            <bootable>true</bootable>
+            <name>hd0</name>
+            <size>28G</size>
+            <uuid>600508b1001c4c6f39fdfc88e80ef2c0</uuid>
+          </litp:disk>
+        </litp:system-disks-collection>
+        <litp:bmc id="bmc">
+          <ipaddress>10.44.84.54</ipaddress>
+          <password_key>key-for-root</password_key>
+          <username>root</username>
+        </litp:bmc>
+      </litp:blade>
+      <litp:blade id="sys2">
+        <system_name>CZJ33308J7</system_name>
+        <litp:system-disks-collection id="disks">
+          <litp:disk id="disk0">
+            <bootable>true</bootable>
+            <name>hd0</name>
+            <size>28G</size>
+            <uuid>600508b1001cd9478cc392affc65abfa</uuid>
+          </litp:disk>
+        </litp:system-disks-collection>
+        <litp:bmc id="bmc">
+          <ipaddress>10.44.84.53</ipaddress>
+          <password_key>key-for-root</password_key>
+          <username>root</username>
+        </litp:bmc>
+      </litp:blade>
+    </litp:infrastructure-systems-collection>
+  </litp:infrastructure>
+  <litp:ms id="ms">
+    <hostname>ms1dot105</hostname>
+    <litp:ms-configs-collection id="configs">
+      <litp:alias-node-config id="alias_config">
+        <litp:alias-node-config-aliases-collection id="aliases">
+          <litp:alias id="ntp_alias_1">
+            <address>10.44.86.30</address>
+            <alias_names>ntp-alias-1</alias_names>
+          </litp:alias>
+          <litp:alias id="ntp_alias_2">
+            <address>127.127.1.0</address>
+            <alias_names>ntp-alias-2</alias_names>
+          </litp:alias>
+        </litp:alias-node-config-aliases-collection>
+      </litp:alias-node-config>
+    </litp:ms-configs-collection>
+    <litp:ms-items-collection id="items">
+      <litp:ntp-service-link id="ntp">
+        <name>ntp1</name>
+      </litp:ntp-service-link>
+    </litp:ms-items-collection>
+    <litp:ms-network_interfaces-collection id="network_interfaces">
+      <litp:eth id="if0">
+        <ipaddress>10.44.86.105</ipaddress>
+        <network_name>mgmt</network_name>
+        <device_name>eth0</device_name>
+        <macaddress>2C:59:E5:3D:B2:D0</macaddress>
+      </litp:eth>
+      <litp:eth id="if1">
+        <ipaddress>10.44.235.111</ipaddress>
+        <network_name>data</network_name>
+        <device_name>eth1</device_name>
+        <macaddress>2C:59:E5:3D:B2:D4</macaddress>
+      </litp:eth>
+    </litp:ms-network_interfaces-collection>
+    <litp:ms-routes-collection id="routes">
+      <litp:route-link id="r4">
+        <name>r4</name>
+      </litp:route-link>
+      <litp:route-link id="r5">
+        <name>r5</name>
+      </litp:route-link>
+      <litp:route-link id="r1">
+        <name>default</name>
+      </litp:route-link>
+      <litp:route-link id="r2">
+        <name>r2</name>
+      </litp:route-link>
+      <litp:route-link id="r3">
+        <name>r3</name>
+      </litp:route-link>
+    </litp:ms-routes-collection>
+    <litp:ms-services-collection id="services">
+      <litp:cobbler-service id="cobbler">
+        <authentication>authn_configfile</authentication>
+        <ksm_ksname>litp.ks</ksm_ksname>
+        <ksm_path>/var/lib/cobbler/kickstarts</ksm_path>
+        <ksm_selinux_mode>enforcing</ksm_selinux_mode>
+        <manage_dhcp>true</manage_dhcp>
+        <manage_dns>false</manage_dns>
+        <puppet_auto_setup>true</puppet_auto_setup>
+        <remove_old_puppet_certs_automatically>true</remove_old_puppet_certs_automatically>
+        <rsync_disabled>false</rsync_disabled>
+        <sign_puppet_certs_automatically>true</sign_puppet_certs_automatically>
+      </litp:cobbler-service>
+    </litp:ms-services-collection>
+    <litp:blade-link id="system">
+      <system_name>CZJ33308JD</system_name>
+    </litp:blade-link>
+  </litp:ms>
+  <litp:root-plans-collection id="plans" />
+  <litp:software id="software">
+    <litp:software-deployables-collection id="deployables" />
+    <litp:software-items-collection id="items">
+      <litp:ntp-service id="ntp1">
+        <name>ntp1</name>
+        <litp:ntp-service-servers-collection id="servers">
+          <litp:ntp-server id="server0">
+            <server>ntp-alias-1</server>
+          </litp:ntp-server>
+          <litp:ntp-server id="server1">
+            <server>ntp-alias-2</server>
+          </litp:ntp-server>
+        </litp:ntp-service-servers-collection>
+      </litp:ntp-service>
+    </litp:software-items-collection>
+    <litp:software-profiles-collection id="profiles">
+      <litp:os-profile id="os_prof1">
+        <arch>x86_64</arch>
+        <breed>redhat</breed>
+        <kopts_post>console=ttyS0,115200</kopts_post>
+        <name>os-profile1</name>
+        <path>/var/www/html/6/os/x86_64/</path>
+        <version>rhel6</version>
+      </litp:os-profile>
+    </litp:software-profiles-collection>
+    <litp:software-runtimes-collection id="runtimes" />
+  </litp:software>
+</litp:root>

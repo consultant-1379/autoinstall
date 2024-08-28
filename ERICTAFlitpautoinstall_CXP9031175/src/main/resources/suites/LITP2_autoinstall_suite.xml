@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="LITP2AutoInstallSuiteInstall">
+  <test name="LITP2AutoInstall">
+    <classes>
+      <class name="com.ericsson.nms.litp.taf.autoinstall.test.cases.AutoInstallRunner" />
+	  <methods>
+	    <include name="autoInstallLITP2"/>
+	  </methods> 
+    </classes>
+  </test>
+</suite>

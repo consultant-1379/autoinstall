@@ -1,0 +1,1 @@
+{ top -bn1 | grep "Cpu(s)" | awk  'match($0,"id"){print substr($0,RSTART-7,8)}'| grep -o '[0-9.]\+' | awk '{print "CPU:_stat", 100-$1}'| sed -e "s/^/$(date +"%T"): /" ; free | grep Mem | awk '{print $1"_stat", $3/$2 * 100.0}'  | sed -e "s/^/$(date +"%T"): /"; }

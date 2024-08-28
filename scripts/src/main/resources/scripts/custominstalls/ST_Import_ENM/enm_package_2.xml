@@ -1,0 +1,976 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<litp:software-items-collection xmlns:litp="http://www.ericsson.com/litp" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ericsson.com/litp litp--schema/litp.xsd" id="items">
+      <litp:yum-repository id="services_repo">
+        <ms_url_path>/ENM_services/</ms_url_path>
+        <name>services_repo</name>
+      </litp:yum-repository>
+      <litp:yum-repository id="db_repo">
+        <ms_url_path>/ENM_db/</ms_url_path>
+        <name>db_repo</name>
+      </litp:yum-repository>
+      <litp:yum-repository id="model_repo">
+        <ms_url_path>/ENM_models/</ms_url_path>
+        <name>model_repo</name>
+      </litp:yum-repository>
+      <litp:yum-repository id="common_repo">
+        <ms_url_path>/ENM_common/</ms_url_path>
+        <name>common_repo</name>
+      </litp:yum-repository>
+      <litp:yum-repository id="ms_repo">
+        <ms_url_path>/ENM_ms/</ms_url_path>
+        <name>ms_repo</name>
+      </litp:yum-repository>
+      <litp:model-deployment-tool-plugin-package id="dpsupgrade">
+        <name>ERICdpsupgrade_CXP9030472</name>
+      </litp:model-deployment-tool-plugin-package>
+      <litp:model-deployment-tool-plugin-package id="dpsbasicentities">
+        <name>ERICdpsbasicentities_CXP9030470</name>
+      </litp:model-deployment-tool-plugin-package>
+      <litp:model-deployment-tool-plugin-package id="dpsjparuntime">
+        <name>ERICdpsjparuntime_CXP9031381</name>
+      </litp:model-deployment-tool-plugin-package>
+      <litp:package id="sanemc">
+        <name>ERIClitpsanemc_CXP9030788</name>
+      </litp:package>
+      <litp:package id="modeldeploymentclient">
+        <name>ERICmodeldeploymentclient_CXP9031863</name>
+      </litp:package>
+      <litp:package id="pibscripts">
+        <name>ERICpibscripts_CXP9032212</name>
+      </litp:package>
+      <litp:package id="enm_configuration">
+        <name>ERICenmconfiguration_CXP9031455</name>
+      </litp:package>
+      <litp:package id="enm_eniq_integration">
+        <epoch>0</epoch>
+        <name>ERICeniqIntegrationService_CXP9031103</name>
+      </litp:package>
+      <litp:model-deployment-tool-package id="mdt">
+        <name>ERICmodeldeploymenttool_CXP9030616</name>
+      </litp:model-deployment-tool-package>
+      <litp:package-list id="model_package">
+        <name>models</name>
+        <litp:package-list-packages-collection id="packages">
+          <litp:model-package id="cppcmcimodel">
+            <name>ERICcppcmcimodel_CXP9031407</name>
+          </litp:model-package>
+          <litp:model-package id="mediationcppconnectivityinfomodel">
+            <name>ERICmediationcppconnectivityinfomodel_CXP9031294</name>
+          </litp:model-package>
+          <litp:model-package id="aicorewebmodel">
+            <name>ERICaicorewebmodel_CXP9030969</name>
+          </litp:model-package>
+          <litp:model-package id="securityfunctionmodel">
+            <name>ERICsecurityfunctionmodel_CXP9031405</name>
+          </litp:model-package>
+          <litp:model-package id="securitymodel">
+            <name>ERICsecuritymodel_CXP9030952</name>
+          </litp:model-package>
+          <litp:model-package id="mediationtopconnectivityinfomodel">
+            <name>ERICmediationtopconnectivityinfomodel_CXP9031293</name>
+          </litp:model-package>
+          <litp:model-package id="psmodels">
+            <name>ERICpsmodels_CXP9030922</name>
+          </litp:model-package>
+          <litp:model-package id="pibmodel">
+            <name>ERICpibmodel_CXP9030858</name>
+          </litp:model-package>
+          <litp:model-package id="webpushmodel">
+            <name>ERICwebpushmodel_CXP9031621</name>
+          </litp:model-package>
+          <litp:model-package id="dpsconfmodels">
+            <name>ERICdpsconfmodels_CXP9030872</name>
+          </litp:model-package>
+          <litp:model-package id="clialiasmodel">
+            <name>ERICclialiasmodel_CXP9031874</name>
+          </litp:model-package>
+          <litp:model-package id="batchmodel">
+            <name>ERICbatchmodel_CXP9031518</name>
+          </litp:model-package>
+          <litp:model-package id="upgradeindmodel">
+            <name>ERICupgradeindmodel_CXP9031718</name>
+          </litp:model-package>
+          <litp:model-package id="hcservicemodel">
+            <name>ERIChcservicemodel_CXP9032088</name>
+          </litp:model-package>
+          <litp:model-package id="medsdkeventmodels">
+            <name>ERICmedsdkeventmodels_CXP9030898</name>
+          </litp:model-package>
+          <litp:model-package id="medcoreapichannelmodels">
+            <name>ERICmedcoreapichannelmodels_CXP9030899</name>
+          </litp:model-package>
+          <litp:model-package id="sshhandlerflowconfig">
+            <name>ERICsshhandlerflowconfig_CXP9031056</name>
+          </litp:model-package>
+          <litp:model-package id="cmparametersmodel">
+            <name>ERICcmparametersmodel_CXP9032669</name>
+          </litp:model-package>
+          <litp:model-package id="sshhandlermodel">
+            <name>ERICsshhandlermodel_CXP9031029</name>
+          </litp:model-package>
+          <litp:model-package id="sshhandlerflow">
+            <name>ERICsshhandlerflow_CXP9031030</name>
+          </litp:model-package>
+          <litp:model-package id="nodesecuritymodel">
+            <name>ERICnodesecuritymodel_CXP9030968</name>
+          </litp:model-package>
+          <litp:model-package id="shmmodels">
+            <name>ERICshmmodels_CXP9031349</name>
+          </litp:model-package>
+          <litp:model-package id="addnodebootstrapmodels">
+            <name>ERICaddnodebootstrapmodels_CXP9031420</name>
+          </litp:model-package>
+          <litp:model-package id="mocihandlermodel">
+            <name>ERICmocihandlermodel_CXP9030422</name>
+          </litp:model-package>
+          <litp:model-package id="writenodeflowmodel">
+            <name>ERICwritenodeflowmodel_CXP9030945</name>
+          </litp:model-package>
+          <litp:model-package id="erbsmediationconfigurationmodel">
+            <name>ERICerbsmediationconfigurationmodel_CXP9030429</name>
+          </litp:model-package>
+          <litp:model-package id="readnonpersistedattributesflow">
+            <name>ERICreadnonpersistedattributesflow_CXP9031585</name>
+          </litp:model-package>
+          <litp:model-package id="mediationservicesmodel">
+            <name>ERICmediationservicesmodel_CXP9031296</name>
+          </litp:model-package>
+          <litp:model-package id="networkelementdefmodel">
+            <name>ERICnetworkelementdefmodel_CXP9031290</name>
+          </litp:model-package>
+          <litp:model-package id="geolocationmodel">
+            <name>ERICgeolocationmodel_CXP9031964</name>
+          </litp:model-package>
+          <litp:model-package id="syncnodeevent">
+            <name>ERICsyncnodeevent_CXP9031195</name>
+          </litp:model-package>
+          <litp:model-package id="syncnodeflowmodel">
+            <name>ERICsyncnodeflowmodel_CXP9030696</name>
+          </litp:model-package>
+          <litp:model-package id="inbounddpshandlermodel">
+            <name>ERICinbounddpshandlermodel_CXP9030733</name>
+          </litp:model-package>
+          <litp:model-package id="syncnodemocihandlermodel">
+            <name>ERICsyncnodemocihandlermodel_CXP9030741</name>
+          </litp:model-package>
+          <litp:model-package id="subscriptionflow">
+            <name>ERICsubscriptionflow_CXP9031209</name>
+          </litp:model-package>
+          <litp:model-package id="subscriptioncreationhandlermodel">
+            <name>ERICsubscriptioncreationhandlermodel_CXP9031210</name>
+          </litp:model-package>
+          <litp:model-package id="notificationhandlingflow">
+            <name>ERICnotificationhandlingflow_CXP9031202</name>
+          </litp:model-package>
+          <litp:model-package id="notificationreceiverhandlermodel">
+            <name>ERICnotificationreceiverhandlermodel_CXP9031203</name>
+          </litp:model-package>
+          <litp:model-package id="networkconnectorconfigmodels">
+            <name>ERICnetworkconnectorconfigmodels_CXP9031370</name>
+          </litp:model-package>
+          <litp:model-package id="subscriptionvalidationflow">
+            <name>ERICsubscriptionvalidationflow_CXP9031214</name>
+          </litp:model-package>
+          <litp:model-package id="subscriptionvalidationhandlermodel">
+            <name>ERICsubscriptionvalidationhandlermodel_CXP9031215</name>
+          </litp:model-package>
+          <litp:model-package id="networkelementcmdefmodel">
+            <name>ERICnetworkelementcmdefmodel_CXP9031291</name>
+          </litp:model-package>
+          <litp:model-package id="osstopmodel">
+            <name>ERICosstopmodel_CXP9031292</name>
+          </litp:model-package>
+          <litp:model-package id="mediationerbsnodemodelcommon">
+            <name>ERICmediationerbsnodemodelcommon_CXP9032151</name>
+          </litp:model-package>
+          <litp:model-package id="mediationerbsnodemodel16b">
+            <name>ERICmediationerbsnodemodel16b_CXP9032523</name>
+          </litp:model-package>
+          <litp:model-package id="mediationerbsnodemodel16a">
+            <name>ERICmediationerbsnodemodel16a_CXP9032349</name>
+          </litp:model-package>
+          <litp:model-package id="mediationerbsnodemodel15b">
+            <name>ERICmediationerbsnodemodel15b_CXP9031712</name>
+          </litp:model-package>
+          <litp:model-package id="mediationerbsnodemodel14b">
+            <name>ERICmediationerbsnodemodel14b_CXP9030987</name>
+          </litp:model-package>
+          <litp:model-package id="mediationerbsnodemodel14a">
+            <name>ERICmediationerbsnodemodel14a_CXP9030986</name>
+          </litp:model-package>
+          <litp:model-package id="mediationerbsnodemodel13b">
+            <name>ERICmediationerbsnodemodel13b_CXP9030985</name>
+          </litp:model-package>
+          <litp:model-package id="mediationerbsnodemodel13a">
+            <name>ERICmediationerbsnodemodel13a_CXP9030984</name>
+          </litp:model-package>
+          <litp:model-package id="mediationmgwnodemodel15b">
+            <name>ERICmediationmgwnodemodel15b_CXP9032455</name>
+          </litp:model-package>
+          <litp:model-package id="mediationmgwnodemodelcommon">
+            <name>ERICmediationmgwnodemodelcommon_CXP9032434</name>
+          </litp:model-package>
+          <litp:model-package id="mediationmgwnodemodel14b">
+            <name>ERICmediationmgwnodemodel14b_CXP9032714</name>
+          </litp:model-package>
+          <litp:model-package id="mediationmgwnodemodel16a">
+            <name>ERICmediationmgwnodemodel16a_CXP9032454</name>
+          </litp:model-package>
+          <litp:model-package id="rncnetworkresourcemodel15b">
+            <name>ERICrncnetworkresourcemodel15b_CXP9031966</name>
+          </litp:model-package>
+          <litp:model-package id="mediationrncnodemodelcommon">
+            <name>ERICmediationrncnodemodelcommon_CXP9032152</name>
+          </litp:model-package>
+          <litp:model-package id="sgsnmmenetworkresourcemodel14b">
+            <name>ERICsgsnmmenetworkresourcemodel14b_CXP9031369</name>
+          </litp:model-package>
+          <litp:model-package id="mediationsgsnmmenodemodelcommon">
+            <name>ERICmediationsgsnmmenodemodelcommon_CXP9032153</name>
+          </litp:model-package>
+          <litp:model-package id="sgsnmmenetworkresourcemodel15a">
+            <name>ERICsgsnmmenetworkresourcemodel15a_CXP9031713</name>
+          </litp:model-package>
+          <litp:model-package id="sgsnmmenetworkresourcemodel15b">
+            <name>ERICsgsnmmenetworkresourcemodel15b_CXP9032044</name>
+          </litp:model-package>
+          <litp:model-package id="commodelsr5_0">
+            <name>ERICcommodelsr5.0_CXP9031865</name>
+          </litp:model-package>
+          <litp:model-package id="msrbsv2networkresourcemodel15b">
+            <name>ERICmsrbsv2networkresourcemodel15b_CXP9031504</name>
+          </litp:model-package>
+          <litp:model-package id="msrbsv2nodemodelcommon">
+            <name>ERICmsrbsv2nodemodelcommon_CXP9032227</name>
+          </litp:model-package>
+          <litp:model-package id="commodelsr5_1">
+            <name>ERICcommodelsr5.1_CXP9032416</name>
+          </litp:model-package>
+          <litp:model-package id="msrbsv2networkresourcemodel16a">
+            <name>ERICmsrbsv2networkresourcemodel16a_CXP9032375</name>
+          </litp:model-package>
+          <litp:model-package id="sgsnmmewritenodeflowmodels">
+            <name>ERICsgsnmmewritenodeflowmodels_CXP9032017</name>
+          </litp:model-package>
+          <litp:model-package id="cbanetconfwritecontrollermodel">
+            <name>ERICcbanetconfwritecontrollermodel_CXP9032025</name>
+          </litp:model-package>
+          <litp:model-package id="radionodewritenodeflowmodels">
+            <name>ERICradionodewritenodeflowmodels_CXP9032354</name>
+          </litp:model-package>
+          <litp:model-package id="mediationcomconnectivityinfomodel">
+            <name>ERICmediationcomconnectivityinfomodel_CXP9031276</name>
+          </litp:model-package>
+          <litp:model-package id="sgsnmmemedconfiguration">
+            <name>ERICsgsnmmemedconfiguration_CXP9031615</name>
+          </litp:model-package>
+          <litp:model-package id="radionodemediationconfiguration">
+            <name>ERICradionodemediationconfiguration_CXP9031903</name>
+          </litp:model-package>
+          <litp:model-package id="comcmheartbeatsupervisionflow">
+            <name>ERICcomcmheartbeatsupervisionflow_CXP9031584</name>
+          </litp:model-package>
+          <litp:model-package id="comecimcmheartbeatsuphandlermodel">
+            <name>ERICcomecimcmheartbeatsuphandlermodel_CXP9031587</name>
+          </litp:model-package>
+          <litp:model-package id="ecimcmheartbeatsupervisionflow">
+            <name>ERICecimcmheartbeatsupervisionflow_CXP9031586</name>
+          </litp:model-package>
+          <litp:model-package id="ecimnotifheartbeathandlermodel">
+            <name>ERICecimnotifheartbeathandlermodel_CXP9031703</name>
+          </litp:model-package>
+          <litp:model-package id="cbanodeevents">
+            <name>ERICcbanodeevents_CXP9031762</name>
+          </litp:model-package>
+          <litp:model-package id="comecimcmdeltasyncflowmodel">
+            <name>ERICcomecimcmdeltasyncflowmodel_CXP9031759</name>
+          </litp:model-package>
+          <litp:model-package id="comecimcmdeltasynchandlermodel">
+            <name>ERICcomecimcmdeltasynchandlermodel_CXP9031760</name>
+          </litp:model-package>
+          <litp:model-package id="comecimcmpreparesubshandlermodel">
+            <name>ERICcomecimcmpreparesubshandlermodel_CXP9032033</name>
+          </litp:model-package>
+          <litp:model-package id="comecimcmsubscriptionhandlermodel">
+            <name>ERICcomecimcmsubscriptionhandlermodel_CXP9031598</name>
+          </litp:model-package>
+          <litp:model-package id="comecimcreatesubscriptionflowmodel">
+            <name>ERICcomecimcreatesubscriptionflowmodel_CXP9031676</name>
+          </litp:model-package>
+          <litp:model-package id="comecimdeletesubscriptionflowmodel">
+            <name>ERICcomecimdeletesubscriptionflowmodel_CXP9031677</name>
+          </litp:model-package>
+          <litp:model-package id="comecimdeletesubshandlermodel">
+            <name>ERICcomecimdeletesubshandlermodel_CXP9031684</name>
+          </litp:model-package>
+          <litp:model-package id="comecimnotifsupervisionhandlermodel">
+            <name>ERICcomecimnotifsupervisionhandlermodel_CXP9031678</name>
+          </litp:model-package>
+          <litp:model-package id="ecimnotificationhandlingflowmodel">
+            <name>ERICecimnotificationhandlingflowmodel_CXP9031675</name>
+          </litp:model-package>
+          <litp:model-package id="sgsncreatesubsflowmodel">
+            <name>ERICsgsncreatesubsflowmodel_CXP9032000</name>
+          </litp:model-package>
+          <litp:model-package id="sgsndeletesubsflowmodel">
+            <name>ERICsgsndeletesubsflowmodel_CXP9032037</name>
+          </litp:model-package>
+          <litp:model-package id="notificationcachedefinitionmodels">
+            <name>ERICnotificationcachedefinitionmodels_CXP9032208</name>
+          </litp:model-package>
+          <litp:model-package id="cbacmsyncnodeflowmodels">
+            <name>ERICcbacmsyncnodeflowmodels_CXP9031502</name>
+          </litp:model-package>
+          <litp:model-package id="cbacmsyncnodehandlermodel">
+            <name>ERICcbacmsyncnodehandlermodel_CXP9031501</name>
+          </litp:model-package>
+          <litp:model-package id="comecimcmfiltergethandlermodel">
+            <name>ERICcomecimcmfiltergethandlermodel_CXP9032146</name>
+          </litp:model-package>
+          <litp:model-package id="radionodecmreadnodeflow">
+            <name>ERICradionodecmreadnodeflow_CXP9032143</name>
+          </litp:model-package>
+          <litp:model-package id="sgsnmmecmreadnodeflow">
+            <name>ERICsgsnmmecmreadnodeflow_CXP9032144</name>
+          </litp:model-package>
+          <litp:model-package id="netconfperiodictaskhandlermodel">
+            <name>ERICnetconfperiodictaskhandlermodel_CXP9031879</name>
+          </litp:model-package>
+          <litp:model-package id="netconfsessionsubshandlermodel">
+            <name>ERICnetconfsessionsubshandlermodel_CXP9031878</name>
+          </litp:model-package>
+          <litp:model-package id="sgsnmmenetconfpreconnhandmodel">
+            <name>ERICsgsnmmenetconfpreconnhandmodel_CXP9031947</name>
+          </litp:model-package>
+          <litp:model-package id="cbanetconfconnecthandlermodel">
+            <name>ERICcbanetconfconnecthandlermodel_CXP9031346</name>
+          </litp:model-package>
+          <litp:model-package id="cbacmnetconfhandlermodel">
+            <name>ERICcbacmnetconfhandlermodel_CXP9031222</name>
+          </litp:model-package>
+          <litp:model-package id="cbaconfigurationmodel">
+            <name>ERICcbaconfigurationmodel_CXP9031361</name>
+          </litp:model-package>
+          <litp:model-package id="cbanetconfdisconnecthandlermodel">
+            <name>ERICcbanetconfdisconnecthandlermodel_CXP9031348</name>
+          </litp:model-package>
+          <litp:model-package id="netconfsessionbuilderhandmodel">
+            <name>ERICnetconfsessionbuilderhandmodel_CXP9032079</name>
+          </litp:model-package>
+          <litp:model-package id="netconfsessiondestroyerhandmodel">
+            <name>ERICnetconfsessiondestroyerhandmodel_CXP9032256</name>
+          </litp:model-package>
+          <litp:model-package id="netconfsessionreleaserhandmodel">
+            <name>ERICnetconfsessionreleaserhandmodel_CXP9032255</name>
+          </litp:model-package>
+          <litp:model-package id="sshcredentialsmanagerhandlermodel">
+            <name>ERICsshcredentialsmanagerhandlermodel_CXP9032067</name>
+          </litp:model-package>
+          <litp:model-package id="sshtransportconnecthandlermodel">
+            <name>ERICsshtransportconnecthandlermodel_CXP9032168</name>
+          </litp:model-package>
+          <litp:model-package id="netconfinboundconfighandlermodel">
+            <name>ERICnetconfinboundconfighandlermodel_CXP9032317</name>
+          </litp:model-package>
+          <litp:model-package id="sgsnmmesecuritymediationconfig">
+            <name>ERICsgsnmmesecuritymediationconfig_CXP9032057</name>
+          </litp:model-package>
+          <litp:model-package id="sgsnmmesecuritysshcommandflow">
+            <name>ERICsgsnmmesecuritysshcommandflow_CXP9032060</name>
+          </litp:model-package>
+          <litp:model-package id="sshcommandhandlermodel">
+            <name>ERICsshcommandhandlermodel_CXP9032058</name>
+          </litp:model-package>
+          <litp:model-package id="sgsnmmecommandhandlermodel">
+            <name>ERICsgsnmmecommandhandlermodel_CXP9032061</name>
+          </litp:model-package>
+          <litp:model-package id="authenticationfailureevent">
+            <name>ERICauthenticationfailureevent_CXP9032066</name>
+          </litp:model-package>
+          <litp:model-package id="authenticationfailureflow">
+            <name>ERICauthenticationfailureflow_CXP9032063</name>
+          </litp:model-package>
+          <litp:model-package id="authenticationfailurehandlermodel">
+            <name>ERICauthenticationfailurehandlermodel_CXP9032064</name>
+          </litp:model-package>
+          <litp:model-package id="fmmediationeventmodel">
+            <name>ERICfmmediationeventmodel_CXP9030672</name>
+          </litp:model-package>
+          <litp:model-package id="er6000cimodel">
+            <name>ERICer6000cimodel_CXP9031842</name>
+          </litp:model-package>
+          <litp:model-package id="er6000nodemodelcommon">
+            <name>ERICer6000nodemodelcommon_CXP9032077</name>
+          </litp:model-package>
+          <litp:model-package id="er6274nodemodelcommon">
+            <name>ERICer6274nodemodelcommon_CXP9035028</name>
+          </litp:model-package>
+          <litp:model-package id="er6672nodemodelcommon">
+            <name>ERICer6672nodemodelcommon_CXP9032478</name>
+          </litp:model-package>
+          <litp:model-package id="er6675nodemodelcommon">
+            <name>ERICer6675nodemodelcommon_CXP9035027</name>
+          </litp:model-package>
+          <litp:model-package id="upgradeindcppretrmimhandlersmodel">
+            <name>ERICupgradeindcppretrmimhandlersmodel_CXP9031766</name>
+          </litp:model-package>
+          <litp:model-package id="upgradeindcppretrievemimflow">
+            <name>ERICupgradeindcppretrievemimflow_CXP9031724</name>
+          </litp:model-package>
+          <litp:model-package id="ftphandlermodel">
+            <name>ERICftphandlermodel_CXP9030847</name>
+          </litp:model-package>
+          <litp:model-package id="upgradeindcomecimretrmimhrsmodel">
+            <name>ERICupgradeindcomecimretrmimhrsmodel_CXP9032276</name>
+          </litp:model-package>
+          <litp:model-package id="erbshchandlerflows">
+            <name>ERICerbshchandlerflows_CXP9032090</name>
+          </litp:model-package>
+          <litp:model-package id="erbshandlermodels">
+            <name>ERICerbshandlermodels_CXP9032091</name>
+          </litp:model-package>
+          <litp:model-package id="minilinkindoornodemodelcommon">
+            <name>ERICminilinkindoornodemodelcommon_CXP9032236</name>
+          </litp:model-package>
+          <litp:model-package id="minilinkindoorcimodel">
+            <name>ERICminilinkindoorcimodel_CXP9032238</name>
+          </litp:model-package>
+          <litp:model-package id="minilinkindoorcmmediationconf">
+            <name>ERICminilinkindoorcmmediationconf_CXP9032239</name>
+          </litp:model-package>
+          <litp:model-package id="minilinkoutdoornodemodelcom">
+            <name>ERICminilinkoutdoornodemodelcom_CXP9032240</name>
+          </litp:model-package>
+          <litp:model-package id="minilinkoutdoorcimodel">
+            <name>ERICminilinkoutdoorcimodel_CXP9032242</name>
+          </litp:model-package>
+          <litp:model-package id="minilinkoutdoorcmmedconfig">
+            <name>ERICminilinkoutdoorcmmedconfig_CXP9032243</name>
+          </litp:model-package>
+          <litp:model-package id="softwaresynceventmodel">
+            <name>ERICsoftwaresynceventmodel_CXP9032514</name>
+          </litp:model-package>
+          <litp:model-package id="cppsoftwaresyncflowmodel">
+            <name>ERICcppsoftwaresyncflowmodel_CXP9032510</name>
+          </litp:model-package>
+          <litp:model-package id="cppsoftwaresynchandlermodel">
+            <name>ERICcppsoftwaresynchandlermodel_CXP9032507</name>
+          </litp:model-package>
+          <litp:model-package id="genericstartsynceventmodel">
+            <name>ERICgenericstartsynceventmodel_CXP9032679</name>
+          </litp:model-package>
+          <litp:model-package id="updateossmodelidflow">
+            <name>ERICupdateossmodelidflow_CXP9032683</name>
+          </litp:model-package>
+          <litp:model-package id="updateossmodelidhandlermodel">
+            <name>ERICupdateossmodelidhandlermodel_CXP9032681</name>
+          </litp:model-package>
+          <litp:model-package id="cmmediationcommonmodels">
+            <name>ERICcmmediationcommonmodels_CXP9032462</name>
+          </litp:model-package>
+          <litp:model-package id="mediationsgsnmmenodemodel16a">
+            <name>ERICmediationsgsnmmenodemodel16a_CXP9032284</name>
+          </litp:model-package>
+          <litp:model-package id="commodelsr60">
+            <name>ERICcommodelsr60_CXP9032536</name>
+          </litp:model-package>
+          <litp:model-package id="radionodenodemodel16b">
+            <name>ERICradionodenodemodel16b_CXP9032534</name>
+          </litp:model-package>
+          <litp:model-package id="mediationmsrbsv1nodemodel16a">
+            <name>ERICmediationmsrbsv1nodemodel16a_CXP9032757</name>
+          </litp:model-package>
+          <litp:model-package id="mediationmsrbsv1nodemodelcommon">
+            <name>ERICmediationmsrbsv1nodemodelcommon_CXP9032752</name>
+          </litp:model-package>
+          <litp:model-package id="msrbsv1mediationconfiguration">
+            <name>ERICmsrbsv1mediationconfiguration_CXP9032790</name>
+          </litp:model-package>
+          <litp:model-package id="tlscredentialsmanagerhandlermodel">
+            <name>ERICtlscredentialsmanagerhandlermodel_CXP9032281</name>
+          </litp:model-package>
+          <litp:model-package id="cmrouterpolicymodel">
+            <name>ERICcmrouterpolicymodel_CXP9032342</name>
+          </litp:model-package>
+          <litp:model-package id="er6000routerpolicymodel">
+            <name>ERICer6000routerpolicymodel_CXP9032576</name>
+          </litp:model-package>
+          <litp:model-package id="comecimcmrouterpolicymodel">
+            <name>ERICcomecimcmrouterpolicymodel_CXP9032613</name>
+          </litp:model-package>
+          <litp:model-package id="networkexplorermodels">
+            <name>ERICnetworkexplorermodels_CXP9030552</name>
+          </litp:model-package>
+          <litp:model-package id="smrsservicemodel">
+            <name>ERICsmrsservicemodel_CXP9030970</name>
+          </litp:model-package>
+          <litp:model-package id="wfsmodel">
+            <name>ERICwfsmodel_CXP9031037</name>
+          </litp:model-package>
+          <litp:model-package id="policyenginemodel">
+            <name>ERICpolicyenginemodel_CXP9031944</name>
+          </litp:model-package>
+          <litp:model-package id="fmprocessedeventmodel">
+            <name>ERICfmprocessedeventmodel_CXP9030673</name>
+          </litp:model-package>
+          <litp:model-package id="targethandlersmodels">
+            <name>ERICtargethandlersmodels_CXP9032666</name>
+          </litp:model-package>
+          <litp:model-package id="genericidentitymgmtmodel">
+            <name>ERICgenericidentitymgmtmodel_CXP9032610</name>
+          </litp:model-package>
+          <litp:model-package id="ssoutilitiesmodel">
+            <name>ERICssoutilitiesmodel_CXP9032644</name>
+          </litp:model-package>
+          <litp:model-package id="comaamodel">
+            <name>ERICcomaamodel_CXP9032020</name>
+          </litp:model-package>
+          <litp:model-package id="pkimanagerconfigmodel">
+            <name>ERICpkimanagerconfigmodel_CXP9032043</name>
+          </litp:model-package>
+          <litp:model-package id="pkicdpsmodel">
+            <name>ERICpkicdpsmodel_CXP9032532</name>
+          </litp:model-package>
+          <litp:model-package id="pkicoremodel">
+            <name>ERICpkicoremodel_CXP9032529</name>
+          </litp:model-package>
+          <litp:model-package id="credentialmanagerconfigmodel">
+            <name>ERICcredentialmanagerconfigmodel_CXP9032685</name>
+          </litp:model-package>
+          <litp:model-package id="pkiracmpmodel">
+            <name>ERICpkiracmpmodel_CXP9032010</name>
+          </litp:model-package>
+          <litp:model-package id="pmfunctionmodel">
+            <name>ERICpmfunctionmodel_CXP9031819</name>
+          </litp:model-package>
+          <litp:model-package id="pmiccorbahandlermodel">
+            <name>ERICpmiccorbahandlermodel_CXP9030591</name>
+          </litp:model-package>
+          <litp:model-package id="pmicdpshandlermodel">
+            <name>ERICpmicdpshandlermodel_CXP9030598</name>
+          </litp:model-package>
+          <litp:model-package id="pmicfilecollectionhandlersmodels">
+            <name>ERICpmicfilecollectionhandlersmodels_CXP9030845</name>
+          </litp:model-package>
+          <litp:model-package id="pmicinitiationflowmodel">
+            <name>ERICpmicinitiationflowmodel_CXP9030608</name>
+          </litp:model-package>
+          <litp:model-package id="pmicfilecollection">
+            <name>ERICpmicfilecollection_CXP9030837</name>
+          </litp:model-package>
+          <litp:model-package id="mediationconfigurationmodel">
+            <name>ERICmediationconfigurationmodel_CXP9030610</name>
+          </litp:model-package>
+          <litp:model-package id="pmicmodel">
+            <name>ERICpmicmodel_CXP9030403</name>
+          </litp:model-package>
+          <litp:model-package id="sgsnmmepmpollingflow">
+            <name>ERICsgsnmmepmpollingflow_CXP9032032</name>
+          </litp:model-package>
+          <litp:model-package id="comecimpmpollingflow">
+            <name>ERICcomecimpmpollingflow_CXP9031690</name>
+          </litp:model-package>
+          <litp:model-package id="comecimpmpollinghandlermodel">
+            <name>ERICcomecimpmpollinghandlermodel_CXP9031691</name>
+          </litp:model-package>
+          <litp:model-package id="ecimpmoperationsflow">
+            <name>ERICecimpmoperationsflow_CXP9031687</name>
+          </litp:model-package>
+          <litp:model-package id="ecimpmoperationshandlermodel">
+            <name>ERICecimpmoperationshandlermodel_CXP9031688</name>
+          </litp:model-package>
+          <litp:model-package id="comecimpmfilecollectionflow">
+            <name>ERICcomecimpmfilecollectionflow_CXP9031984</name>
+          </litp:model-package>
+          <litp:model-package id="comecimpmfilecollectsetuphandmodel">
+            <name>ERICcomecimpmfilecollectsetuphandmodel_CXP9031985</name>
+          </litp:model-package>
+          <litp:model-package id="sgsnmmepmmediationconfigmodel">
+            <name>ERICsgsnmmepmmediationconfigmodel_CXP9031696</name>
+          </litp:model-package>
+          <litp:model-package id="comecimpmoperationsflow">
+            <name>ERICcomecimpmoperationsflow_CXP9032030</name>
+          </litp:model-package>
+          <litp:model-package id="comecimpmoperhandlermodel">
+            <name>ERICcomecimpmoperhandlermodel_CXP9032218</name>
+          </litp:model-package>
+          <litp:model-package id="radionodepmmediationconfigmodel">
+            <name>ERICradionodepmmediationconfigmodel_CXP9032029</name>
+          </litp:model-package>
+          <litp:model-package id="comecimpmcompleteoperationsflow">
+            <name>ERICcomecimpmcompleteoperationsflow_CXP9032031</name>
+          </litp:model-package>
+          <litp:model-package id="comecimpmevents">
+            <name>ERICcomecimpmevents_CXP9032379</name>
+          </litp:model-package>
+          <litp:model-package id="sgsnmmepmfilecollectionflow">
+            <name>ERICsgsnmmepmfilecollectionflow_CXP9032283</name>
+          </litp:model-package>
+          <litp:model-package id="comecimpmasyncoperhandlermodel">
+            <name>ERICcomecimpmasyncoperhandlermodel_CXP9032166</name>
+          </litp:model-package>
+          <litp:model-package id="ecimpmeventsmoperationhandlrmodel">
+            <name>ERICecimpmeventsmoperationhandlrmodel_CXP9032126</name>
+          </litp:model-package>
+          <litp:model-package id="pmicebminitiationhandlermodel">
+            <name>ERICpmicebminitiationhandlermodel_CXP9032475</name>
+          </litp:model-package>
+          <litp:model-package id="dpsdataretrievalsetuphandlermodel">
+            <name>ERICdpsdataretrievalsetuphandlermodel_CXP9032388</name>
+          </litp:model-package>
+          <litp:model-package id="erbscpppmiccollectionhandlersmodel">
+            <name>ERICerbscpppmiccollectionhandlersmodel_CXP9032391</name>
+          </litp:model-package>
+          <litp:model-package id="pmiccelltraceinitsetuphndlrmodels">
+            <name>ERICpmiccelltraceinitsetuphndlrmodels_CXP9032398</name>
+          </litp:model-package>
+          <litp:model-package id="pmicpredefstatsinitsetuphndlrmodels">
+            <name>ERICpmicpredefstatsinitsetuphndlrmodels_CXP9032399</name>
+          </litp:model-package>
+          <litp:model-package id="pmicstatsinitsetuphndlrsmodels">
+            <name>ERICpmicstatsinitsetuphndlrsmodels_CXP9032397</name>
+          </litp:model-package>
+          <litp:model-package id="sgsnmmepmhandlersmodel">
+            <name>ERICsgsnmmepmhandlersmodel_CXP9032611</name>
+          </litp:model-package>
+          <litp:model-package id="pmiccommonscannerhandlermodel">
+            <name>ERICpmiccommonscannerhandlermodel_CXP9032590</name>
+          </litp:model-package>
+          <litp:model-package id="erbspmhandlersmodel">
+            <name>ERICerbspmhandlersmodel_CXP9032686</name>
+          </litp:model-package>
+          <litp:model-package id="alarmpersistencemodel">
+            <name>ERICalarmpersistencemodel_CXP9030634</name>
+          </litp:model-package>
+          <litp:model-package id="fmfmxmodel">
+            <name>ERICfmfmxmodel_CXP9031623</name>
+          </litp:model-package>
+          <litp:model-package id="fmcorbamediationconfig">
+            <name>ERICfmcorbamediationconfig_CXP9030689</name>
+          </litp:model-package>
+          <litp:model-package id="cppalarmsupervisionflowmodel">
+            <name>ERICcppalarmsupervisionflowmodel_CXP9030679</name>
+          </litp:model-package>
+          <litp:model-package id="cppalarmsupervisionhandlermodel">
+            <name>ERICcppalarmsupervisionhandlermodel_CXP9030680</name>
+          </litp:model-package>
+          <litp:model-package id="corbainterfacemodel">
+            <name>ERICcorbainterfacemodel_CXP9031151</name>
+          </litp:model-package>
+          <litp:model-package id="solrloadschedulemodel">
+            <name>ERICsolrloadschedulemodel_CXP9031934</name>
+          </litp:model-package>
+          <litp:model-package id="dlmsconfigurationmodel">
+            <name>ERICdlmsconfigurationmodel_CXP9032634</name>
+          </litp:model-package>
+          <litp:model-package id="eniqtopologyservicemodel">
+            <name>ERICeniqtopologyservicemodel_CXP9031298</name>
+          </litp:model-package>
+          <litp:model-package id="predefinedfiltermodel">
+            <name>ERICpredefinedfiltermodel_CXP9032383</name>
+          </litp:model-package>
+          <litp:model-package id="cmeventsservicemodel">
+            <name>ERICcmeventsservicemodel_CXP9032699</name>
+          </litp:model-package>
+          <litp:model-package id="importbatchmodel">
+            <name>ERICimportbatchmodel_CXP9032657</name>
+          </litp:model-package>
+          <litp:model-package id="shmfunctionmodel">
+            <name>ERICshmfunctionmodel_CXP9031388</name>
+          </litp:model-package>
+          <litp:model-package id="cppinventorymodel">
+            <name>ERICcppinventorymodel_CXP9030632</name>
+          </litp:model-package>
+          <litp:model-package id="inventoryhandlermodel">
+            <name>ERICinventoryhandlermodel_CXP9031350</name>
+          </litp:model-package>
+          <litp:model-package id="cppinventorymediationconfigmodel">
+            <name>ERICcppinventorymediationconfigmodel_CXP9030620</name>
+          </litp:model-package>
+          <litp:model-package id="upgradepackagemodel">
+            <name>ERICupgradepackagemodel_CXP9030915</name>
+          </litp:model-package>
+          <litp:model-package id="licensekeyinfomodel">
+            <name>ERIClicensekeyinfomodel_CXP9031107</name>
+          </litp:model-package>
+          <litp:model-package id="cppinventoryflowmodel">
+            <name>ERICcppinventoryflowmodel_CXP9030622</name>
+          </litp:model-package>
+          <litp:model-package id="shmjobmodel">
+            <name>ERICshmjobmodel_CXP9031092</name>
+          </litp:model-package>
+          <litp:model-package id="shmmodelextension">
+            <name>ERICshmmodelextension_CXP9031197</name>
+          </litp:model-package>
+          <litp:model-package id="kpicalculationflowmodel">
+            <name>ERICkpicalculationflowmodel_CXP9031710</name>
+          </litp:model-package>
+          <litp:model-package id="apdatacore">
+            <name>ERICapdatacore_CXP9030534</name>
+          </litp:model-package>
+          <litp:model-package id="apdatamacro">
+            <name>ERICapdatamacro_CXP9030537</name>
+          </litp:model-package>
+          <litp:model-package id="apmodelecim">
+            <name>ERICapmodelecim_CXP9032498</name>
+          </litp:model-package>
+          <litp:model-package id="nodediscoveryflowmodel">
+            <name>ERICnodediscoveryflowmodel_CXP9031392</name>
+          </litp:model-package>
+          <litp:model-package id="nodediscoveryhandlersmodel">
+            <name>ERICnodediscoveryhandlersmodel_CXP9031395</name>
+          </litp:model-package>
+          <litp:model-package id="apmediationmodel">
+            <name>ERICapmediationmodel_CXP9032337</name>
+          </litp:model-package>
+          <litp:model-package id="licensecontrolmonitoringmodel">
+            <name>ERIClicensecontrolmonitoringmodel_CXP9031453</name>
+          </litp:model-package>
+          <litp:model-package id="ipsmtemplatemanagermodel">
+            <name>ERICipsmtemplatemanagermodel_CXP9031442</name>
+          </litp:model-package>
+          <litp:model-package id="ipsmservicedefinitionmodel">
+            <name>ERICipsmservicedefinitionmodel_CXP9031991</name>
+          </litp:model-package>
+          <litp:model-package id="ipsmservicemanagermodel">
+            <name>ERICipsmservicemanagermodel_CXP9031993</name>
+          </litp:model-package>
+          <litp:model-package id="ipnediscoverymodel">
+            <name>ERICipnediscoverymodel_CXP9032136</name>
+          </litp:model-package>
+          <litp:model-package id="activityservicemodel">
+            <name>ERICactivityservicemodel_CXP9031444</name>
+          </litp:model-package>
+          <litp:model-package id="er6000mediationconfiguration">
+            <name>ERICer6000mediationconfiguration_CXP9031843</name>
+          </litp:model-package>
+          <litp:model-package id="mediationiptransportchannelmodels">
+            <name>ERICmediationiptransportchannelmodels_CXP9032406</name>
+          </litp:model-package>
+          <litp:model-package id="er6000nodemodel16a">
+            <name>ERICer6000nodemodel16a_CXP9032075</name>
+          </litp:model-package>
+          <litp:model-package id="er6672nodemodel16a">
+            <name>ERICer6672nodemodel16a_CXP9032479</name>
+          </litp:model-package>
+          <litp:model-package id="er6672nodemodel16av2">
+            <name>ERICer6672nodemodel16av2_CXP9032724</name>
+          </litp:model-package>
+          <litp:model-package id="er6000syncnodeflow">
+            <name>ERICer6000syncnodeflow_CXP9032360</name>
+          </litp:model-package>
+          <litp:model-package id="er6000configurationmodel">
+            <name>ERICer6000configurationmodel_CXP9032374</name>
+          </litp:model-package>
+          <litp:model-package id="netconfecimoperationflow">
+            <name>ERICnetconfecimoperationflow_CXP9032361</name>
+          </litp:model-package>
+          <litp:model-package id="ipnesnmpscanflow">
+            <name>ERICipnesnmpscanflow_CXP9032287</name>
+          </litp:model-package>
+          <litp:model-package id="ipnediscoveryhandlermodel">
+            <name>ERICipnediscoveryhandlermodel_CXP9032433</name>
+          </litp:model-package>
+          <litp:model-package id="netconfyangoperationhandlermodel">
+            <name>ERICnetconfyangoperationhandlermodel_CXP9032369</name>
+          </litp:model-package>
+          <litp:model-package id="netconfyangoperationflow">
+            <name>ERICnetconfyangoperationflow_CXP9032362</name>
+          </litp:model-package>
+          <litp:model-package id="iposcmnotificationhandlingflow">
+            <name>ERICiposcmnotificationhandlingflow_CXP9032473</name>
+          </litp:model-package>
+          <litp:model-package id="iposcmheartbtsuphandlermodel">
+            <name>ERICiposcmheartbtsuphandlermodel_CXP9032464</name>
+          </litp:model-package>
+          <litp:model-package id="iposcmheartbtsupflow">
+            <name>ERICiposcmheartbtsupflow_CXP9032447</name>
+          </litp:model-package>
+          <litp:model-package id="iposcmsubflow">
+            <name>ERICiposcmsubflow_CXP9032446</name>
+          </litp:model-package>
+          <litp:model-package id="iposcmsubhandlermodel">
+            <name>ERICiposcmsubhandlermodel_CXP9032463</name>
+          </litp:model-package>
+          <litp:model-package id="iposcmcopyconfigflow">
+            <name>ERICiposcmcopyconfigflow_CXP9032603</name>
+          </litp:model-package>
+          <litp:model-package id="iposcmcopyconfighandlermodel">
+            <name>ERICiposcmcopyconfighandlermodel_CXP9032614</name>
+          </litp:model-package>
+          <litp:model-package id="iposnodeevent">
+            <name>ERICiposnodeevent_CXP9032604</name>
+          </litp:model-package>
+          <litp:model-package id="pkirascepmodel">
+            <name>ERICpkirascepmodel_CXP9032006</name>
+          </litp:model-package>
+          <litp:model-package id="pkiratdpsmodel">
+            <name>ERICpkiratdpsmodel_CXP9032425</name>
+          </litp:model-package>
+          <litp:model-package id="snmpfmhandlermodel">
+            <name>ERICsnmpfmhandlermodel_CXP9031547</name>
+          </litp:model-package>
+          <litp:model-package id="snmpfmflowmodel">
+            <name>ERICsnmpfmflowmodel_CXP9031549</name>
+          </litp:model-package>
+          <litp:model-package id="ecimnetconffmflowmodel">
+            <name>ERICecimnetconffmflowmodel_CXP9032249</name>
+          </litp:model-package>
+          <litp:model-package id="sgsnmmenetconffmflowmodel">
+            <name>ERICsgsnmmenetconffmflowmodel_CXP9032246</name>
+          </litp:model-package>
+          <litp:model-package id="snmpfmchannelmodels">
+            <name>ERICsnmpfmchannelmodels_CXP9032452</name>
+          </litp:model-package>
+          <litp:model-package id="minilinkindoorfmmediationconf">
+            <name>ERICminilinkindoorfmmediationconf_CXP9032306</name>
+          </litp:model-package>
+          <litp:model-package id="minilinkindoortargetdestflow">
+            <name>ERICminilinkindoortargetdestflow_CXP9032347</name>
+          </litp:model-package>
+          <litp:model-package id="er6000fmmediationconfiguration">
+            <name>ERICer6000fmmediationconfiguration_CXP9032382</name>
+          </litp:model-package>
+          <litp:model-package id="er6000snmpfmmodel">
+            <name>ERICer6000snmpfmmodel_CXP9032380</name>
+          </litp:model-package>
+          <litp:model-package id="er6000snmpfmhandlermodel">
+            <name>ERICer6000snmpfmhandlermodel_CXP9032403</name>
+          </litp:model-package>
+          <litp:model-package id="msrbsv1fmmediationconfigmodel">
+            <name>ERICmsrbsv1fmmediationconfigmodel_CXP9031714</name>
+          </litp:model-package>
+          <litp:model-package id="msrbsv2fmmediationconfig">
+            <name>ERICmsrbsv2fmmediationconfig_CXP9031733</name>
+          </litp:model-package>
+          <litp:model-package id="wppsgsnmmefmmediationconfigmodel">
+            <name>ERICwppsgsnmmefmmediationconfigmodel_CXP9031784</name>
+          </litp:model-package>
+          <litp:model-package id="ecimnetconffmhandlermodel">
+            <name>ERICecimnetconffmhandlermodel_CXP9032248</name>
+          </litp:model-package>
+          <litp:model-package id="sgsnmmenetconffmhandlermodel">
+            <name>ERICsgsnmmenetconffmhandlermodel_CXP9032245</name>
+          </litp:model-package>
+          <litp:model-package id="autocellidmodel">
+            <name>ERICautocellidmodel_CXP9031283</name>
+          </litp:model-package>
+          <litp:model-package id="cmeventsdclistenermodel">
+            <name>ERICcmeventsdclistenermodel_CXP9032675</name>
+          </litp:model-package>
+          <litp:model-package id="cmeventsdceventprocessormodel">
+            <name>ERICcmeventsdceventprocessormodel_CXP9032698</name>
+          </litp:model-package>
+          <litp:model-package id="cmeventssolrschedulemodel">
+            <name>ERICcmeventssolrschedulemodel_CXP9032662</name>
+          </litp:model-package>
+          <litp:model-package id="nodeclimodel">
+            <name>ERICnodeclimodel_CXP9032672</name>
+          </litp:model-package>
+          <litp:model-package id="er6000pmmediationconfigurationmodel">
+            <name>ERICer6000pmmediationconfigurationmodel_CXP9032563</name>
+          </litp:model-package>
+          <litp:model-package id="er6000pmpollingflow">
+            <name>ERICer6000pmpollingflow_CXP9032615</name>
+          </litp:model-package>
+          <litp:model-package id="er6000pmoperationsflow">
+            <name>ERICer6000pmoperationsflow_CXP9032562</name>
+          </litp:model-package>
+          <litp:model-package id="er6000pmfilecollectionflow">
+            <name>ERICer6000pmfilecollectionflow_CXP9032616</name>
+          </litp:model-package>
+        </litp:package-list-packages-collection>
+      </litp:package-list>
+      <litp:package id="postgres_package">
+        <name>ERICpostgresql_CXP9030501</name>
+      </litp:package>
+      <litp:package id="haproxy-external_package">
+        <name>ERICenmsghaproxy_CXP9031977</name>
+      </litp:package>
+      <litp:package id="haproxy-sb_package">
+        <name>ERICenmsghaproxysb_CXP9032559</name>
+      </litp:package>
+      <litp:package id="haproxy-int_package">
+        <name>ERICenmsghaproxyinternal_CXP9032386</name>
+      </litp:package>
+      <litp:package id="wfs_postgres_package">
+        <name>ERICworkflowservicedb_CXP9031786</name>
+      </litp:package>
+      <litp:package id="ms_postgres_package">
+        <name>ERICgeobasemapdbconf_CXP9032155</name>
+      </litp:package>
+      <litp:package id="idenmgmt_postgres_package">
+        <name>ERICgenericidentitymgmtpostgresql_CXP9031932</name>
+      </litp:package>
+      <litp:package id="credentialmanagercli_package">
+        <name>ERICcredentialmanagercli_CXP9031389</name>
+      </litp:package>
+      <litp:package id="credentialmgrclidbconfig_package">
+        <name>ERICcredentialmgrclidbconfig_CXP9032561</name>
+      </litp:package>
+      <litp:package id="export_postgres_package">
+        <name>ERICexportservicedb_CXP9031955</name>
+      </litp:package>
+      <litp:package id="config_postgres_package">
+        <name>ERICcmconfigservicedb_CXP9031954</name>
+      </litp:package>
+      <litp:package id="import_postgres_package">
+        <name>ERICimportservicedb_CXP9032005</name>
+      </litp:package>
+      <litp:package id="pki_postgres_package">
+        <name>ERICpkiservicedb_CXP9031995</name>
+      </litp:package>
+      <litp:package id="sfwk_postgres_package">
+        <name>ERICserviceframeworkdb_CXP9032274</name>
+      </litp:package>
+      <litp:package id="ebsm_postgres_package">
+        <name>ERICebsmdb_CXP9032322</name>
+      </litp:package>
+      <litp:package-list id="versant_package">
+        <name>versant-package-list</name>
+        <litp:package-list-packages-collection id="packages">
+          <litp:package id="versant_server">
+            <name>EXTRversantserver_CXP9031326</name>
+          </litp:package>
+          <litp:package id="versant_utility">
+            <name>ERICversant_CXP9030229</name>
+          </litp:package>
+        </litp:package-list-packages-collection>
+      </litp:package-list>
+      <litp:package id="jms_package">
+        <name>ERICenmsgjmsserver_CXP9031572</name>
+      </litp:package>
+      <litp:package id="rhqagent_package">
+        <name>ERICrhqagent_CXP9032418</name>
+      </litp:package>
+      <litp:package-list id="elasticsearch_package">
+        <name>elasticsearch-package-list</name>
+        <litp:package-list-packages-collection id="packages">
+          <litp:package id="elasticsearch_server">
+            <name>EXTRelasticsearch_CXP9031565</name>
+            <repository>3pp</repository>
+          </litp:package>
+        </litp:package-list-packages-collection>
+      </litp:package-list>
+      <litp:package id="mysql_package">
+        <name>ERICidenmgmtmysql_CXP9030736</name>
+      </litp:package>
+      <litp:package id="opendj_package">
+        <name>ERICidenmgmtopendj_CXP9030738</name>
+      </litp:package>
+      <litp:package id="backup_restore_package">
+        <name>ERICbackuprestoreservice_CXP9031367</name>
+      </litp:package>
+      <litp:package id="backup_restore_ombs_package">
+        <name>ERICbackuprestoreserviceombs_CXP9031432</name>
+      </litp:package>
+      <litp:package id="ddc_package">
+        <name>ERICddc_CXP9030294</name>
+      </litp:package>
+      <litp:package id="rsyslog8">
+        <epoch>0</epoch>
+        <name>EXTRlitprsyslogelasticsearch_CXP9032173</name>
+        <replaces>rsyslog7</replaces>
+      </litp:package>
+   </litp:software-items-collection>
+

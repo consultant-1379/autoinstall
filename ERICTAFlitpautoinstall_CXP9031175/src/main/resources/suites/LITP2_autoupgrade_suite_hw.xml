@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="LITP2AutoInstallSuiteUpgrade">
+  <test name="LITP2AutoInstall" preserve-order="true">
+    <classes>
+      <class name="com.ericsson.nms.litp.taf.autoinstall.test.cases.AutoInstallRunner" />
+	  <methods>
+	    <include name="autoUpgradePhysical"/>
+            <include name="autoUpgradePhysicalRsyslog8"/>
+        </methods> 
+    </classes>
+  </test>
+</suite>
